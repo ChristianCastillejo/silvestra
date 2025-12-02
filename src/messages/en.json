@@ -1,0 +1,619 @@
+{
+  "HomePage": {
+    "title": "Welcome",
+    "subtitle": "Discover our collection"
+  },
+  "Home": {
+    "metadata": {
+      "title": "Silvestra - Living Art from Sierra Morena",
+      "description": "Handcrafted terrariums and living decoration that require minimal care. Natural art made in Sierra Morena.",
+      "siteName": "Silvestra"
+    },
+    "hero": {
+      "slide1": {
+        "title": "A piece of forest that takes care of itself (almost).",
+        "description": "Living craftsmanship made in Sierra Morena. Natural decoration that requires minimal care.",
+        "linkText": "View Collection"
+      },
+      "slideIndicator": "Go to slide {number}"
+    },
+    "gifts": {
+      "title": "Looking for the perfect gift?",
+      "description": "We've selected our most popular terrariums for when you don't know what to choose. A sure bet that includes an optional personalized dedication.",
+      "buttonText": "View gift selection",
+      "imageAlt": "Perfect gift image"
+    },
+    "featured": {
+      "title": "Community Favorites",
+      "description": "The designs that are bringing the most life to our customers' homes this month. Artisan quality validated by you."
+    }
+  },
+  "About": {
+    "heading": "Hello. Here we design calm.",
+    "metadata": {
+      "title": "Our Story | Silvestra",
+      "description": "Meet Christian, the founder behind Silvestra and his passion for nature."
+    },
+    "intro": {
+      "paragraph1": "I'm Christian, founder of Silvestra.",
+      "paragraph2": "If you've made it here, you're probably looking to add some green to your life, but without the usual complications.",
+      "paragraph3": "Let me briefly tell you how an engineer ended up swapping the keyboard for the earth in a workshop in Seville."
+    },
+    "sections": {
+      "fromCode": {
+        "title": "From code to root",
+        "paragraph1": "For years I lived glued to a screen.",
+        "paragraph2": "I'm an industrial engineer and worked designing software in Dublin, Amsterdam and Barcelona. My job was to take complex problems and design simple, visual solutions. I lived fast, connected and far from the countryside.",
+        "paragraph3": "Until I decided to stop.",
+        "paragraph4": "I hung up the laptop, traveled with a backpack through Asia and America to reset, and ended up returning to the essential: to my origin in Sierra Morena.",
+        "paragraph5": "Here, taking care of the garden and learning permaculture, I understood that nature is the best design system that exists."
+      },
+      "engineering": {
+        "title": "Engineering and Design",
+        "paragraph1": "Silvestra is born from combining my two facets.",
+        "paragraph2": "I realized that an Eternal Garden is the perfect design: it gives you all the beauty of nature while eliminating the difficult part (maintenance).",
+        "paragraph3": "In each piece I apply what I know:",
+        "listItem1": "Engineering: I calculate the layers of substrate and moisture so that the water cycle is autonomous and the plant doesn't die.",
+        "listItem2": "Design: I compose the landscape so that it is visually clean, balanced and looks good in any corner of your home.",
+        "paragraph4": "The result is not just decoration. It's a living system designed to work on its own."
+      },
+      "workshop": {
+        "title": "Workshop, not factory",
+        "paragraph1": "This is not a logistics warehouse. It's an artisan workshop.",
+        "paragraph2": "I don't have shelves with stock accumulating dust. I work on demand.",
+        "paragraph3": "When you buy your terrarium:",
+        "listItem1": "1. I select the glass and the healthiest plants one by one.",
+        "listItem2": "2. I prepare the ecosystem layer by layer.",
+        "listItem3": "3. I carve and adjust by hand the natural cork lid from our cork oaks.",
+        "paragraph4": "That's why it takes me a few days to send it to you. It's not slowness, it's quality control. I need to make sure the ecosystem is stable before it goes on a journey."
+      },
+      "notAlone": {
+        "title": "You're not alone",
+        "paragraph1": "My work doesn't end when the package leaves. These terrariums are designed to last for years. I'll be delighted to know that a part of my workshop now lives in your living room and, if you ever have doubts about how your ecosystem is doing, write to me.",
+        "paragraph2": "Behind this website there's no algorithm, there's me. Thank you for supporting local commerce and work done with calm.",
+        "paragraph3": "Welcome to the forest."
+      }
+    }
+  },
+  "Care": {
+    "heading": "Care",
+    "metadata": {
+      "title": "Care Guide | Silvestra",
+      "description": "Learn how to care for your Eternal Garden terrarium. Complete guide to watering, light, pruning and troubleshooting."
+    },
+    "tabs": {
+      "howItWorks": {
+        "tabTitle": "🔄 How it works",
+        "title": "Understanding your Eternal Garden",
+        "paragraph1": "Think of it as a miniature tropical greenhouse. Inside the glass we've created the perfect balance between plants, substrate and moisture. The heat of the day evaporates the water, which condenses on the walls and falls back at night like an internal \"rain\".",
+        "paragraph2": "This closed cycle is what allows the plants to self-sustain for months. Your only job is to make sure this cycle doesn't break."
+      },
+      "watering": {
+        "tabTitle": "💧 Watering",
+        "title": "Watering (Or the lack of it)",
+        "paragraph1": "Forget about watering every week. Your terrarium will only ask for water about 3 or 4 times a year. How to know when it's time? The terrarium \"speaks\" to you through three signals:",
+        "listItem1": "Absence of condensation: If in the morning you don't see droplets of condensation on the glass.",
+        "listItem2": "Dry moss: If the moss has lost its intense green color and feels rough to the touch.",
+        "listItem3": "Light soil: If the substrate stuck to the glass looks light brown (dry) instead of dark (wet).",
+        "paragraph2": "How to water correctly: Don't use a watering can. Use a sprayer or a syringe.",
+        "listItem4": "1. Pour or spray mineral (or filtered) water very slowly, aiming at the base of the plants and the moss, not just the leaves.",
+        "listItem5": "2. Do it little by little. It's much easier to add water than to remove it.",
+        "listItem6": "3. Stop when you see the substrate change color to dark, without flooding the bottom."
+      },
+      "light": {
+        "tabTitle": "☀️ Light",
+        "title": "Light: The Engine of Life",
+        "paragraph1": "The Golden Rule: Lots of brightness, zero direct sun. The moss and tropical plants in your terrarium evolved to grow under the tree canopy, where light arrives filtered.",
+        "listItem1": "Where to put it? Near a window, but never where the sun's rays hit it directly. The glass would act like a magnifying glass and \"cook\" the plants in a matter of hours.",
+        "listItem2": "The Pro Trick: Rotate the terrarium 180° every week. This will prevent the plants from growing tilted seeking light and ensure the moss stays green on all sides."
+      },
+      "pruning": {
+        "tabTitle": "✂️ Pruning",
+        "title": "Pruning: Maintaining the Shape",
+        "paragraph1": "Your plants are alive and happy, so they will grow. When the leaves start to press against the glass, it's time for a small grooming session.",
+        "listItem1": "Open the lid and cut with clean scissors just above a leaf node.",
+        "listItem2": "Leave the terrarium open for 24 hours after pruning so the cuts heal without excess moisture.",
+        "listItem3": "Done! Pruning stimulates the plant to grow more lush and compact."
+      },
+      "troubleshooting": {
+        "tabTitle": "🚑 Troubleshooting",
+        "title": "Troubleshooting",
+        "paragraph1": "Too much condensation? If the glass is so fogged that you can't see the plants inside, the terrarium has excess heat or humidity.",
+        "listItem1": "Solution: Open the lid for 12-24 hours so the excess water evaporates. Look for a slightly cooler place if possible.",
+        "paragraph2": "Yellow or fallen leaves? It's normal for plants to lose some old leaves (the bottom ones) to give strength to the new ones. It's part of their natural cycle.",
+        "listItem2": "Solution: Open the terrarium and remove dead leaves with long tweezers or by hand. If they stay inside, they could generate mold.",
+        "paragraph3": "White and hairy mold? Sometimes, during adaptation to your home, a bit of mold may appear on a branch or in the substrate. Don't panic.",
+        "listItem3": "Solution: Remove the affected part with a paper towel or a cotton swab. Leave the terrarium open for 48 hours in a well-lit place. Light and fresh air are the best natural fungicides.",
+        "paragraph4": "Bugs? Your ecosystem is alive. Some earthworm or small soil insect is a sign of healthy substrate. If you see snails or slugs, remove them so they don't eat your plants. If you see pests (white aphids), contact us and we'll tell you how to treat it, although it's very uncommon in closed terrariums.",
+        "paragraph5": "Do you have specific questions?",
+        "paragraph6": "Remember that every home is a world. If your terrarium does something strange that's not on this list, send us a photo at [email]. We're here to ensure your piece of forest stays alive for a long time."
+      }
+    }
+  },
+  "Collections": {
+    "metadata": {
+      "notFound": "Collection Not Found",
+      "siteName": "Silvestra"
+    },
+    "sortBy": "Sort by",
+    "sort": {
+      "relevance": "Relevance",
+      "trending": "Trending",
+      "latestArrivals": "Latest arrivals",
+      "priceLowToHigh": "Price: Low to high",
+      "priceHighToLow": "Price: High to low"
+    }
+  },
+  "Card": {
+    "outOfStock": "Out of stock",
+    "selectVariant": "Select variant",
+    "addToCart": "Add to cart",
+    "addToCartAriaLabel": "Add to cart",
+    "errors": {
+      "maxQuantity": "You can only add {quantity} {productTitle} {variantTitle} to the cart.",
+      "unexpectedError": "An unexpected error occurred while adding the item to the cart. Please try again."
+    }
+  },
+  "Contact": {
+    "heading": "Let's talk!",
+    "metadata": {
+      "title": "Contact",
+      "description": "Get in touch with us",
+      "siteName": "Silvestra"
+    },
+    "description": {
+      "paragraph1": "If you have doubts about which terrarium to choose, you're worried about the light in your living room, or you just want to say hello, write to me.",
+      "paragraph2": "I read and answer all emails myself. I'll try to respond within 24-48 hours."
+    },
+    "form": {
+      "namePlaceholder": "Name",
+      "emailPlaceholder": "Email *",
+      "messagePlaceholder": "Enter your message..",
+      "sendButton": "Send"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email address",
+      "nameRequired": "Name is required",
+      "messageRequired": "Message is required"
+    },
+    "success": {
+      "messageSent": "Message sent successfully"
+    },
+    "errors": {
+      "serverError": "Server error",
+      "failedToSend": "Failed to send message",
+      "unknownError": "Unknown error occurred"
+    }
+  },
+  "Cookies": {
+    "heading": "Cookie Policy",
+    "metadata": {
+      "title": "Cookie Policy | Silvestra",
+      "description": "Silvestra cookie policy."
+    },
+    "sections": {
+      "whatAreCookies": {
+        "title": "1. What are cookies?",
+        "paragraph1": "A cookie is nothing more than a small text file that is downloaded to your browser (computer, mobile or tablet) when you visit a website. They are not viruses or malicious programs. They serve so that the website \"remembers\" things about your visit.",
+        "paragraph2": "At Silvestra we use cookies for basic things like remembering what you've put in your cart, and for useful things like understanding which products are liked more."
+      },
+      "typesOfCookies": {
+        "title": "2. What types of cookies do we use?",
+        "paragraph1": "Depending on their function, on this website we use:",
+        "technical": {
+          "main": "Technical Cookies (Necessary): They are essential for the website to function. Without them, you couldn't buy.",
+          "provider": "Main provider: Shopify.",
+          "function": "Function: Remember your shopping cart, keep your session secure while browsing and manage the payment process."
+        },
+        "analytical": {
+          "main": "Analytical Cookies (Statistics): They help us understand how users behave on the website to improve it. The information is anonymous (we don't know your name, only aggregated data).",
+          "provider": "Provider: Google Analytics (Google LLC).",
+          "function": "Function: Know how many people visit us, which pages are viewed most or from which city they read us."
+        },
+        "advertising": {
+          "main": "Advertising Cookies (Marketing): They are used to show you relevant ads and prevent you from seeing the same thing a thousand times.",
+          "provider": "Provider: Meta (Facebook Pixel / Instagram).",
+          "function": "Function: If you have visited our website, these cookies allow us to show you our terrariums when you browse Instagram or Facebook, or measure if an advertising campaign has worked."
+        }
+      },
+      "cookiesList": {
+        "title": "3. List of Cookies used",
+        "technical": {
+          "type": "Technical",
+          "text": "Shopify for Shopping cart, security and store management."
+        },
+        "analytical": {
+          "type": "Analytical",
+          "text": "Google Analytics for Traffic measurement and anonymous behavior."
+        },
+        "advertising": {
+          "type": "Advertising",
+          "text": "Meta (Facebook) for Retargeting and ad measurement."
+        }
+      },
+      "howToDisable": {
+        "title": "4. How can you disable them?",
+        "paragraph1": "You have total control. You can allow, block or delete cookies installed on your device through the configuration of your browser options. Keep in mind that if you block technical cookies (Shopify), you may not be able to complete your purchase.",
+        "paragraph2": "Here are the quick links to configure it according to your browser:",
+        "links": {
+          "chrome": "Google Chrome",
+          "firefox": "Mozilla Firefox",
+          "safari": "Apple Safari",
+          "edge": "Microsoft Edge"
+        }
+      },
+      "updates": {
+        "title": "5. Updates",
+        "paragraph1": "This Cookie Policy may be modified based on legislative requirements or to adapt said policy to the instructions of the Spanish Data Protection Agency. We recommend visiting it periodically."
+      }
+    }
+  },
+  "FAQ": {
+    "heading": "Frequently Asked Questions",
+    "metadata": {
+      "title": "FAQ",
+      "description": "Frequently asked questions",
+      "siteName": "Silvestra"
+    },
+    "imageAlt": "Creative workshop with artisanal products",
+    "faqs": {
+      "item1": {
+        "question": "Lorem ipsum dolor sit amet?",
+        "answer": {
+          "item1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "item2": "Quisque tincidunt velit et erat faucibus, sed faucibus augue feugiat.",
+          "item3": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere.",
+          "item4": {
+            "text": "Praesent at",
+            "link": {
+              "text": "link example"
+            },
+            "textAfter": "dui et augue pharetra efficitur."
+          }
+        }
+      },
+      "item2": {
+        "question": "Curabitur at magna non?",
+        "answer": "Etiam scelerisque nisi ut lectus scelerisque, sed dapibus dolor fermentum."
+      },
+      "item3": {
+        "question": "Quisque tincidunt velit et erat?",
+        "answer": {
+          "item1": "Nam luctus massa non nunc tincidunt, et efficitur purus blandit.",
+          "item2": "Donec scelerisque metus ac ex efficitur hendrerit.",
+          "item3": "Aliquam erat volutpat."
+        }
+      },
+      "item4": {
+        "question": "Vestibulum et dui nec nunc?",
+        "answer": "Mauris eget lorem vitae eros gravida euismod non et arcu."
+      },
+      "item5": {
+        "question": "Integer auctor metus non nulla?",
+        "answer": {
+          "item1": "Pellentesque in odio quis turpis imperdiet pharetra.",
+          "item2": "Vivamus auctor ligula in neque lacinia, nec egestas orci varius."
+        }
+      },
+      "item6": {
+        "question": "Suspendisse tincidunt, lacus nec?",
+        "answer": "Nulla facilisi. Donec auctor ligula sit amet velit ultricies vehicula."
+      }
+    }
+  },
+  "LegalNotice": {
+    "heading": "Legal Notice and Terms of Use",
+    "metadata": {
+      "title": "Legal Notice and Terms of Use | Silvestra",
+      "description": "Legal notice and terms of use of Silvestra."
+    },
+    "sections": {
+      "identification": {
+        "title": "1. Owner Identification",
+        "paragraph1": "In compliance with Law 34/2002, of July 11, on Information Society Services and Electronic Commerce (LSSI-CE), we inform you that the ownership of this website, Silvestra (hereinafter, \"the Website\"), is held by:",
+        "listItem1": "Owner: Christian Castillejo Arcos.",
+        "listItem2": "NIF/DNI: 47212932G.",
+        "listItem3": "Address: Alanís 41380, Sevilla (Spain).",
+        "listItem4": "Contact: hola@silvestra.es"
+      },
+      "intellectualProperty": {
+        "title": "2. Intellectual Property",
+        "paragraph1": "All contents of this website (including, without limitation, texts, product photographs, logos, images, icons and graphic design) are intellectual property of Silvestra or third parties who have authorized their use. Reproduction, distribution or total or partial modification of the contents without our express authorization is prohibited. In summary: The photos of our terrariums are ours. Please, do not use them for your own business without permission."
+      },
+      "portalUse": {
+        "title": "3. Portal Use",
+        "paragraph1": "Access to this website attributes the condition of USER and implies acceptance of these conditions. The user undertakes to make appropriate use of the contents and services (such as purchasing products), and not to use them for illegal activities or contrary to good faith."
+      },
+      "liabilityLimitation": {
+        "title": "4. Limitation of Liability",
+        "paragraph1": "Silvestra is not responsible for possible security errors that may occur or for damage to the user's computer system (hardware and software), or to files or documents stored therein, as a consequence of the presence of viruses on the user's computer used for the connection."
+      }
+    }
+  },
+  "PrivacyPolicy": {
+    "heading": "Privacy Policy (Summary and Clear)",
+    "metadata": {
+      "title": "Privacy Policy | Silvestra",
+      "description": "Privacy policy of Silvestra."
+    },
+    "sections": {
+      "dataController": {
+        "title": "1. Who is responsible for your data?",
+        "paragraph1": "Christian Castillejo Arcos, with address in Alanís, Sevilla (Spain). You can contact us at hola@silvestra.es for any matter related to your privacy."
+      },
+      "dataUsage": {
+        "title": "2. What do we use your data for?",
+        "paragraph1": "We collect the minimum necessary data (Name, Address, Email, Phone) only for:",
+        "listItem1": "Process and send your order: We need to give your address and phone to the courier company so the package reaches you.",
+        "listItem2": "Billing: To comply with our legal obligations and taxes.",
+        "listItem3": "Customer Service: To resolve questions about your shipment.",
+        "listItem4": "Communications (Only if you accept): If you subscribe to our newsletter, we will use your email to send you news. You can unsubscribe at any time."
+      },
+      "dataSharing": {
+        "title": "3. Who do we share your data with?",
+        "paragraph1": "We do not sell your data to anyone. Never. We only share it with third parties essential to provide you with the service:",
+        "listItem1": "Transport companies (to deliver your package).",
+        "listItem2": "Online store platform (to process the order).",
+        "listItem3": "Accounting/Administration (to comply with tax authorities)."
+      },
+      "yourRights": {
+        "title": "4. Your Rights",
+        "paragraph1": "You have total control over your information. At any time you can write to us at hola@silvestra.es to:",
+        "listItem1": "Know what data we have about you.",
+        "listItem2": "Request that we correct them if they are wrong.",
+        "listItem3": "Request that we delete them (as long as we do not have the legal obligation to keep them, such as an invoice)."
+      }
+    }
+  },
+  "Shipping": {
+    "heading": "Shipping, Guarantees and Calm",
+    "metadata": {
+      "title": "Shipping, Guarantees and Calm | Silvestra",
+      "description": "Shipping terms and conditions, guarantees and returns. All information about how your order travels and what happens if something unexpected arises.",
+      "openGraphDescription": "Shipping terms and conditions, guarantees and returns of Silvestra."
+    },
+    "intro": "We want your experience to be as relaxed as our eternal gardens. Here we explain how your order travels, how it arrives and what happens if something unexpected arises. No impossible-to-read fine print.",
+    "questions": {
+      "title": "Questions?",
+      "paragraph1": "If your case is not explained here, write to us at hola@silvestra.es. We are people, not robots, and we are here to help you."
+    },
+    "sections": {
+      "delivery": {
+        "title": "How and when does your order arrive?",
+        "paragraph1": "Artisan Preparation: We are not a factory, we are a workshop. Each eternal garden is prepared and hydrated on demand so it arrives perfect. That's why our standard preparation + shipping time is 7 to 10 business days (although sometimes we run faster).",
+        "listItem1": "Territory: We ship to all of peninsular Spain. (For now we don't reach the Islands, Ceuta or Melilla due to the delicacy of transport).",
+        "listItem2": "Cost: Shipping is FREE on orders over 59€ (adjust according to your policy). For the rest, you'll see the exact cost before paying.",
+        "listItem3": "Courier: We work with companies specialized in fragile transport.",
+        "listItem4": "Deliveries: Monday to Friday. On weekends we rest and so do the plants.",
+        "paragraph2": "Important: Make sure to give us the correct address. If the package bounces because the address was wrong or there was no one after several attempts, we will have to charge you for the second shipment. Better check it twice!"
+      },
+      "complicatedPlaces": {
+        "title": "\"Complicated\" Places (Hospitals and Offices)",
+        "paragraph1": "If you send a gift to a hospital, hotel or large office building, keep in mind that couriers usually only reach reception.",
+        "listItem1": "Hospitals: We need the ward and room number. Keep in mind that many ICUs do not admit plants.",
+        "listItem2": "Hotels: Tell us the full name of the person who has the reservation and their room number.",
+        "paragraph2": "Note: If the center rejects the package or they cannot deliver it in person to the final recipient due to their internal rules, we cannot be responsible (nor refund the shipping), although we will do everything possible to make it arrive."
+      },
+      "guarantee": {
+        "title": "Perfect Arrival Guarantee (Returns)",
+        "paragraph1": "We know that buying glass online is scary. That's why we've created our Perfect Arrival Guarantee.",
+        "paragraph2": "If it arrives broken or in poor condition: Total peace of mind. If you open the box and the eternal garden has suffered an accident on the journey:",
+        "listItem1": "Take a photo of the broken piece and the box within 24 hours of receipt.",
+        "listItem2": "Send it to us at hola@silvestra.es.",
+        "listItem3": "We'll send you a new one completely free. No questions asked.",
+        "paragraph3": "Right of Withdrawal (Change of mind):",
+        "listItem4": "Live Products (Eternal Gardens): By law, natural plants are considered perishable goods and do not accept returns if there are no defects (since they suffer a lot on the round trip). But if you have any problem, write to us and we'll find a solution.",
+        "listItem5": "Non-Live Products (Accessories/Decoration): You have 14 days to return them if you haven't used them and keep the packaging. Write to us and we'll tell you how to send it back (the shipping costs for this shipment are on you)."
+      },
+      "cancellations": {
+        "title": "Cancellations",
+        "paragraph1": "Have you changed your mind or got the date wrong?",
+        "listItem1": "With time (48h before): If you notify us at least 2 business days before the order ships, we'll refund your money in full.",
+        "listItem2": "Last minute: If the order is already assembled and labeled (less than 48h before), we won't be able to cancel it because we will have already invested hours of work and fresh plants in it."
+      },
+      "uniquePieces": {
+        "title": "Unique Pieces (Craftsmanship Notice)",
+        "paragraph1": "Remember that we work with nature, not with molds.",
+        "listItem1": "Plants may vary slightly in shape or tone from the photo.",
+        "listItem2": "Cork is natural bark and each piece has its own cracks and personality.",
+        "listItem3": "Your eternal garden will be unique. If the exact variety of a plant is not available at the nursery, we will use one of equal or superior quality maintaining the aesthetics of the original design."
+      },
+      "paymentMethods": {
+        "title": "Secure Payment Methods",
+        "paragraph1": "You can pay safely with Card (Visa, Mastercard...) or PayPal. We use encrypted payment gateways (SSL), so your data never touches our servers."
+      }
+    }
+  },
+  "TermsOfPurchase": {
+    "heading": "General Terms and Conditions (Sale)",
+    "metadata": {
+      "title": "General Terms and Conditions | Silvestra",
+      "description": "General terms and conditions of contract and sale of Silvestra."
+    },
+    "sections": {
+      "productNature": {
+        "title": "1. Nature of Products (Craftsmanship)",
+        "paragraph1": "Our products (Eternal Gardens, Kokedamas, etc.) are living and artisanal compositions.",
+        "listItem1": "Variations: When working with natural elements (plants, moss, cork), it is impossible for two identical pieces to exist. The photographs on the website are a faithful representation of the product, but the size, shape and tone of the plants may vary slightly.",
+        "listItem2": "Quality: We guarantee that the value and quality of the delivered product will always match or exceed that of the requested product."
+      },
+      "pricesAndPayments": {
+        "title": "2. Prices and Payments",
+        "paragraph1": "The prices shown include the applicable VAT in Spain. Payment is made through secure gateways (Shopify Payments / Stripe / PayPal). Silvestra never has access to your complete banking data; these are managed directly by the financial institution in an encrypted manner."
+      },
+      "shippingAndDeadlines": {
+        "title": "3. Shipping and Deadlines",
+        "paragraph1": "We ship to Peninsular Spain.",
+        "listItem1": "Preparation time: Being a living product that requires hydration and prior preparation, our processing times usually range between 7 and 10 days.",
+        "listItem2": "Delivery responsibility: If the order cannot be delivered because the customer has provided an incorrect or incomplete address, or due to repeated absence, the costs of a second shipment will be borne by the customer."
+      },
+      "returns": {
+        "title": "4. Returns and Right of Withdrawal",
+        "paragraph1": "Following Art. 103 of the General Law for the Defense of Consumers and Users:",
+        "listItem1": "Perishable Products (Plants and Terrariums): The right of withdrawal (return for change of mind) is NOT admitted for natural plants and terrariums, as they are living beings that can deteriorate quickly in constant round-trip transport.",
+        "listItem2": "Arrival in poor condition: If the product arrives broken or damaged by transport, the customer has 24 hours after receipt to notify us with photographs to hola@silvestra.es. In this case, we will proceed with the free replacement of the piece.",
+        "listItem3": "Non-Perishable Products (Accessories): For items that are not living plants, the customer has 14 calendar days to return the product, assuming the shipping costs of the return."
+      },
+      "applicableLaw": {
+        "title": "5. Applicable Law and Jurisdiction",
+        "paragraph1": "For the resolution of all disputes or issues related to this website, Spanish legislation will apply, with the Courts and Tribunals of Seville being competent for the resolution of all conflicts derived from or related to its use."
+      }
+    }
+  },
+  "Product": {
+    "metadata": {
+      "notFound": "Product Not Found",
+      "availableNow": "Available now",
+      "siteName": "Silvestra"
+    },
+    "imagesNotAvailable": "Product images are not available.",
+    "relatedProducts": "Related Products",
+    "careAndMaintenance": {
+      "intro": "The art of doing (almost) nothing.",
+      "paragraph1": "Your terrarium works like a small autonomous planet. Thanks to the condensation cycle, water constantly recycles inside the glass, allowing plants to hydrate themselves for months.",
+      "paragraph2": "Your role in this ecosystem is simple:",
+      "light": "☀️ Light: Find a bright corner, but without direct sun (the glass acts like a magnifying glass).",
+      "water": "💧 Water: Forget the weekly routine. You'll only need to water 3 or 4 times a year.",
+      "temperature": "🌡️ Temperature: If you're comfortable at home, your plants are too.",
+      "guideText": "Want to master the details? We've prepared a simple guide so you know how to 'read' what your terrarium is telling you.",
+      "guideLink": "View Master Care Guide"
+    },
+    "shippingAndReturn": {
+      "intro": "Safe shipping, no fine print.",
+      "paragraph1": "We take 7 days to prepare and protect your terrarium before shipping. We want to ensure the glass and plants travel safely.",
+      "paragraph2": "If despite everything the package suffers during transport and arrives in poor condition, don't worry, you don't have to fill out endless forms; simply write to us, send us a photo and we'll find an immediate solution (replacement or refund).",
+      "guaranteeLink": "View our Perfect Arrival Guarantee"
+    },
+    "accordion": {
+      "description": "Description",
+      "careAndMaintenance": "Care and maintenance",
+      "shippingAndReturn": "Shipping and return"
+    },
+    "addToCart": "Add to cart",
+    "ariaLabels": {
+      "decreaseQuantity": "Decrease quantity",
+      "increaseQuantity": "Increase quantity",
+      "viewImage": "View image {number}",
+      "prev": "Previous image",
+      "next": "Next image"
+    },
+    "errors": {
+      "variantNotAvailable": "This variant is not available for sale.",
+      "maxQuantity": "You can only add {quantity} {productTitle} {variantTitle} to the cart.",
+      "unexpectedError": "An unexpected error occurred while adding the item to the cart. Please try again."
+    }
+  },
+  "Layout": {
+    "metadata": {
+      "title": "Silvestra - Living Art from Sierra Morena",
+      "titleTemplate": "%s | Silvestra",
+      "description": "Handcrafted terrariums and living decoration that require minimal care. Natural art made in Sierra Morena.",
+      "siteName": "Silvestra"
+    }
+  },
+  "NotFound": {
+    "statusCode": "404",
+    "heading": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "returnHome": "Return Home"
+  },
+  "DynamicPage": {
+    "metadata": {
+      "notFound": "Page Not Found",
+      "siteName": "Silvestra"
+    },
+    "lastUpdated": "Last updated: {date}."
+  },
+  "Header": {
+    "siteName": "Silvestra",
+    "logoAlt": "Logo Icon",
+    "ariaLabels": {
+      "goToHome": "Go to home page",
+      "openMobileMenu": "Open mobile menu"
+    },
+    "mobileMenu": {
+      "title": "Menu",
+      "ariaLabels": {
+        "closeMenu": "Close menu",
+        "goBack": "Go back",
+        "openSubmenu": "Open {title} submenu"
+      }
+    }
+  },
+  "Footer": {
+    "contact": "Contact",
+    "copyright": "© 2025 Silvestra. All rights reserved."
+  },
+  "Cart": {
+    "title": "Shopping cart",
+    "emptyCart": "Your cart is empty",
+    "continueShopping": "Continue shopping",
+    "subtotal": "Subtotal:",
+    "shippingNote": "Shipping and taxes calculated at checkout.",
+    "checkout": "Checkout",
+    "productItemAlt": "Product item",
+    "ariaLabels": {
+      "openCart": "Open shopping cart",
+      "closeCart": "Close shopping cart",
+      "closeOverlay": "Close cart overlay",
+      "deleteItem": "Delete item",
+      "decreaseQuantity": "Decrease quantity",
+      "increaseQuantity": "Increase quantity"
+    },
+    "errors": {
+      "missingItemId": "Item ID is missing. Please refresh the page.",
+      "maxQuantity": "You can only add {quantity} {productTitle} {variantTitle} to the cart.",
+      "unexpectedError": "Unexpected error occurred. Please try again."
+    }
+  },
+  "Newsletter": {
+    "emailPlaceholder": "Enter your email..",
+    "signUp": "Sign Up",
+    "ariaLabels": {
+      "email": "Email address",
+      "subscribe": "Subscribe to newsletter"
+    },
+    "errors": {
+      "subscribeFailed": "Failed to subscribe. Please try again.",
+      "unexpectedError": "An unexpected error occurred. Please try again."
+    }
+  },
+  "FeaturedCollections": {
+    "ariaLabels": {
+      "scrollLeft": "Scroll left",
+      "scrollRight": "Scroll right"
+    }
+  },
+  "HeroTwins": {
+    "image1": {
+      "alt": "Hero image 1",
+      "description": "This is the first slide description."
+    },
+    "image2": {
+      "alt": "Hero image 2",
+      "description": "This is the first slide description."
+    }
+  },
+  "CurrencySelect": {
+    "ariaLabels": {
+      "selectCurrency": "Select currency: {country} ({currency} {prefix})"
+    }
+  },
+  "About1": {
+    "heading": "Our Story",
+    "paragraph": "I'm Christian, I started with the mission of bringing a little piece of nature to your home. Each of our products is handmade with care and local materials.",
+    "imageAlt": "Creative workshop with artisanal products"
+  },
+  "NewsletterSection": {
+    "title": "Sign Up to Newsletter",
+    "description": "Sign up for 10% off your first purchase and free shipping. Updates information on Sales and Offers."
+  },
+  "CookieBanner": {
+    "title": "We value your privacy",
+    "description": "We use cookies to enhance your browsing experience and analyze our traffic. By clicking 'Accept', you consent to our use of cookies.",
+    "readMore": "Read our Cookie Policy.",
+    "accept": "Accept all",
+    "decline": "Essential only"
+  }
+}

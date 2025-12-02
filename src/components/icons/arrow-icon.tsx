@@ -1,0 +1,36 @@
+import React from "react";
+
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+  className?: string;
+}
+
+export const ArrowIcon = ({ className, ...props }: IconProps) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      className={className}
+      {...props}
+    >
+      <path
+        fill="none"
+        stroke="#000"
+        strokeDasharray="10"
+        strokeDashoffset="12"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M12 8l-7 7M12 8l7 7"
+      >
+        <animate
+          fill="freeze"
+          attributeName="stroke-dashoffset"
+          dur="0.3s"
+          values="12;0"
+        />
+      </path>
+    </svg>
+  );
+};

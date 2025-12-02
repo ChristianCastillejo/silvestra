@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+
+    --color-primary: #B68045;
+  --color-secondary: #54625B;
+
+    --color-gray-dark: #666666;
+  --color-gray-light: #CBCBCB;
+  --color-border: #ebebeb;
+  --color-bg-gray: #f5f5f5;
+  --color-background: #ffffff;
+
+    --color-neutral-black: #1D1D1F;
+  --color-text-black: #1D1D1F;
+  --color-neutral-white: #ffffff;
+  --color-text-white: #ffffff;
+
+  --ease-cubic: cubic-bezier(.19, .61, .15, .82);
+  --animate-spin-slow: spin 3s linear infinite;
+  --animate-accordion-down: accordion-down 0.3s ease-in-out;
+  --animate-accordion-up: accordion-up 0.3s ease-in-out;
+
+  --animate-fade-in: fade-in 0.2s ease-out;
+  --animate-fade-out: fade-out 0.2s ease-out;
+
+  --animate-slide-in-right: slide-in-right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-out-right: slide-out-right 0.3s ease-in;
+
+  --animate-slide-in-left: slide-in-left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-out-left: slide-out-left 0.3s ease-in;
+
+  --transition-duration-base: 300ms;
+  --transition-duration-slow: 800ms;
+  --transition-ease: ease-in-out;
+
+  @keyframes accordion-down {
+    from { height: 0 }
+    to { height: var(--radix-accordion-content-height) }
+  }
+
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height) }
+    to { height: 0 }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes slide-in-right {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes slide-out-right {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes slide-in-left {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+  @keyframes slide-out-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+}
+
+ :root {
+   --primary: var(--color-primary);
+  --secondary: var(--color-secondary);
+  --gray: var(--color-gray-dark);
+  --gray-light: var(--color-gray-light);
+  --border: var(--color-border);
+  --bg-gray: var(--color-bg-gray);
+  --background: var(--color-background);
+  --text-black: var(--color-text-black);
+  --neutral-black: var(--color-neutral-black);
+  --text-white: var(--color-text-white);
+  --neutral-white: var(--color-neutral-white);
+  
+  --ease-cubic: cubic-bezier(.19, .61, .15, .82);
+  --transition-duration-base: 300ms;
+  --transition-duration-slow: 800ms;
+  --transition-ease: ease-in-out;
+}
+
+ @utility transition-cubic {
+  transition-timing-function: var(--ease-cubic);
+  transition-duration: var(--transition-duration-slow);
+  transition-property: all;
+}
+
+@utility transition-ease {
+  transition-timing-function: var(--transition-ease);
+  transition-duration: var(--transition-duration-base);
+  transition-property: all;
+}
+
+ @keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.accordion[data-state="open"] .accordion-icon::after {
+  transform: rotate(180deg) translate(0px);
+  height: 0px;
+}

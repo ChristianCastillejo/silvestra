@@ -1,0 +1,40 @@
+{
+  "colorSwatches": {
+    "Black": "#484848",
+    "Gray": "#808080",
+    "Rose gold": "#B76D79",
+    "Blue": "#005BD3",
+    "Moss": "#ACB5A3",
+    "Amber": "#D8CFB4",
+    "Clear": "#F1F1F1"
+  },
+  "defaultCurrency": "ES",
+  "localizations": [
+    {
+      "country": "United Kingdom",
+      "countryCode": "GB",
+      "currency": "GBP",
+      "prefix": "£",
+      "locale": "en-GB"
+    },
+    {
+      "country": "España",
+      "countryCode": "ES",
+      "currency": "EUR",
+      "prefix": "€",
+      "locale": "es-ES"
+    }
+  ],
+  "components": {
+    "header": {
+      "menu": "main-menu"
+    },
+    "footer": {
+      "menus": [
+        "tienda",
+        "info",
+        "legal"
+      ]
+    }
+  }
+}
