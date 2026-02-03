@@ -19,26 +19,28 @@ interface LegalPageLayoutProps {
   sections: SectionConfig[];
 }
 
+type TranslatorFn = (key: string) => string;
+
 function renderContentItem(
   item: ContentItem,
   index: number,
-  translate: (key: string) => string
+  t: TranslatorFn
 ) {
   if (item.type === "paragraph") {
     if (item.textKey) {
       return (
         <p key={index}>
-          {translate(item.key)}: {translate(item.textKey)}
+          {t(item.key)}: {t(item.textKey)}
         </p>
       );
     }
-    return <p key={index}>{translate(item.key)}</p>;
+    return <p key={index}>{t(item.key)}</p>;
   }
   if (item.type === "list") {
     return (
       <ul key={index}>
         {item.items.map((key, j) => (
-          <li key={j}>{translate(key)}</li>
+          <li key={j}>{t(key)}</li>
         ))}
       </ul>
     );
@@ -48,10 +50,10 @@ function renderContentItem(
       <ul key={index}>
         {item.items.map((listItem, j) => (
           <li key={j}>
-            {translate(listItem.key)}
+            {t(listItem.key)}
             <ul>
               {listItem.nestedItems.map((nestedKey, k) => (
-                <li key={k}>{translate(nestedKey)}</li>
+                <li key={k}>{t(nestedKey)}</li>
               ))}
             </ul>
           </li>
@@ -70,7 +72,7 @@ function renderContentItem(
               rel="noopener noreferrer"
               className="underline"
             >
-              {translate(link.text)}
+              {t(link.text)}
             </a>
           </li>
         ))}
@@ -85,13 +87,12 @@ export default function LegalPageLayout({
   headingKey,
   sections,
 }: LegalPageLayoutProps) {
-  const t = useTranslations(namespace as Parameters<typeof useTranslations>[0]);
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
+  const t = useTranslations(namespace as Parameters<typeof useTranslations>[0]) as unknown as TranslatorFn;
 
   return (
     <section className="bg-background">
       <div className="flex flex-col items-center mt-20">
-        <h1 className="text-center mb-2">{translate(headingKey)}</h1>
+        <h1 className="text-center mb-2">{t(headingKey)}</h1>
       </div>
       <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center gap-6 px-4 pt-8 pb-12 mt-20 md:gap-12 md:px-10">
         <div className="flex w-full max-w-4xl flex-col items-center gap-6 md:gap-12">
@@ -100,11 +101,11 @@ export default function LegalPageLayout({
               {sections.map((section, index) => (
                 <div key={index} className="flex flex-col gap-4 md:gap-6">
                   <h3 className="text-lg font-bold text-gray">
-                    {translate(section.titleKey)}
+                    {t(section.titleKey)}
                   </h3>
                   <div className="text-lg text-gray [&_p]:m-0 [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-4 [&_ul:first-child]:mt-0 [&_ul:last-child]:mb-0 [&_li]:mb-2 [&_li:last-child]:mb-0 [&_table]:w-full [&_strong]:font-normal [&_a]:text-gray [&_a:hover]:text-gray">
                     {section.content.map((item, i) =>
-                      renderContentItem(item, i, translate)
+                      renderContentItem(item, i, t)
                     )}
                   </div>
                 </div>

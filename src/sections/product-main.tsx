@@ -10,7 +10,6 @@ import { useProductContext } from "@/context/product-context";
 
 export default function ProductMain(): React.JSX.Element {
   const t = useTranslations("Product");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const { product, selectedImageIndex } = useProductContext();
 
   if (!product) {
@@ -34,7 +33,7 @@ export default function ProductMain(): React.JSX.Element {
   if (!product?.images?.length) {
     return (
       <Container as="section" className="!pt-5">
-        <p>{translate("imagesNotAvailable")}</p>
+        <p>{t("imagesNotAvailable")}</p>
       </Container>
     );
   }

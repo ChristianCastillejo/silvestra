@@ -14,7 +14,7 @@ interface Props {
 
 export default function EditQuantity({ item, updateCart, setErrorMsg }: Props) {
   const t = useTranslations("Cart");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
+
   const merchandiseId = item.merchandise.id;
   const quantity = item.quantity;
   const quantityAvailable = item.merchandise.quantityAvailable || 0;
@@ -22,17 +22,17 @@ export default function EditQuantity({ item, updateCart, setErrorMsg }: Props) {
 
   const handleUpdateQuantity = async (newQuantity: number): Promise<void> => {
     if (!item.id) {
-      setErrorMsg(translate("errors.missingItemId"));
+      setErrorMsg(t("errors.missingItemId"));
       return;
     }
 
     if (newQuantity > quantityAvailable) {
       setErrorMsg(
-        translate("errors.maxQuantity", {
+        t("errors.maxQuantity", {
           quantity: quantityAvailable,
           productTitle: item.merchandise.product.title,
           variantTitle: item.merchandise.title,
-        } as Record<string, string | number>)
+        })
       );
       return;
     }
@@ -68,18 +68,16 @@ export default function EditQuantity({ item, updateCart, setErrorMsg }: Props) {
   const isLoading = isPending;
   const isMinReached = quantity <= 1;
   const isMaxReached = quantity >= quantityAvailable;
-
   return (
     <div className="flex gap-1 flex-row items-center rounded-full py-2 px-4 border bg-bg-gray border-border">
       <button
         type="button"
         disabled={isLoading || isMinReached}
-        className={`flex items-center justify-center ${
-          isLoading || isMinReached
-            ? "opacity-50 cursor-not-allowed"
-            : "cursor-pointer hover:opacity-70"
-        }`}
-        aria-label={translate("ariaLabels.decreaseQuantity")}
+        className={`flex items-center justify-center ${isLoading || isMinReached
+          ? "opacity-50 cursor-not-allowed"
+          : "cursor-pointer hover:opacity-70"
+          }`}
+        aria-label={t("ariaLabels.decreaseQuantity")}
         onClick={() => {
           if (!isLoading && !isMinReached) {
             handleUpdateQuantity(quantity - 1);
@@ -100,12 +98,11 @@ export default function EditQuantity({ item, updateCart, setErrorMsg }: Props) {
       <button
         type="button"
         disabled={isLoading || isMaxReached}
-        className={`flex items-center justify-center ${
-          isLoading || isMaxReached
-            ? "opacity-50 cursor-not-allowed"
-            : "cursor-pointer hover:opacity-70"
-        }`}
-        aria-label={translate("ariaLabels.increaseQuantity")}
+        className={`flex items-center justify-center ${isLoading || isMaxReached
+          ? "opacity-50 cursor-not-allowed"
+          : "cursor-pointer hover:opacity-70"
+          }`}
+        aria-label={t("ariaLabels.increaseQuantity")}
         onClick={() => {
           if (!isLoading && !isMaxReached) {
             handleUpdateQuantity(quantity + 1);

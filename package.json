@@ -2,7 +2,6 @@
   "name": "silvestra-storefront",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "yarn@1.22.22",
   "description": "High-performance headless storefront built with Next.js 15, Shopify and TypeScript.",
   "scripts": {
     "dev": "next dev",

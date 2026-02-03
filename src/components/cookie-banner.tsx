@@ -32,7 +32,7 @@ export function CookieBanner() {
   };
 
   const loadScripts = () => {
-    if (window.typeof === "undefined") return;
+    if (typeof window === "undefined") return;
     if (document.getElementById("google-analytics")) return;
 
     const script = document.createElement("script");

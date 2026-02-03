@@ -22,13 +22,6 @@ export default function AddToCart({
   selectedVariant,
 }: Props): React.JSX.Element {
   const t = useTranslations("Product");
-  const translate = (
-    key: string,
-    values?: Record<string, string | number | Date>
-  ) =>
-    values
-      ? (t(key as Parameters<typeof t>[0], values) as string)
-      : (t(key as Parameters<typeof t>[0]) as string);
   const router = useRouter();
   const { addCartItem, cart, setCart } = useCart();
   const [quantity, setQuantity] = useState<number>(1);
@@ -59,7 +52,7 @@ export default function AddToCart({
 
   const handleAddToCart = async (): Promise<void> => {
     if (!selectedVariant || !isAvailableForSale) {
-      toast.error(translate("errors.variantNotAvailable"));
+      toast.error(t("errors.variantNotAvailable"));
       return;
     }
 
@@ -75,11 +68,11 @@ export default function AddToCart({
 
     if (currentQuantityInCart + quantity > quantityAvailable) {
       toast.error(
-        translate("errors.maxQuantity", {
+        t("errors.maxQuantity", {
           quantity: quantityAvailable,
           productTitle: product.title,
           variantTitle: selectedVariant.title,
-        } as Record<string, string | number>)
+        })
       );
       setLoading(false);
       return;
@@ -108,7 +101,7 @@ export default function AddToCart({
       const errorMessage =
         error instanceof Error
           ? error.message
-          : translate("errors.unexpectedError");
+          : t("errors.unexpectedError");
       toast.error(errorMessage);
     } finally {
       setLoading(false);
@@ -121,7 +114,7 @@ export default function AddToCart({
         <div className="flex gap-1 flex-row items-center rounded-full py-2 px-4 border bg-bg-gray border-border">
           <button
             type="button"
-            aria-label={translate("ariaLabels.decreaseQuantity")}
+            aria-label={t("ariaLabels.decreaseQuantity")}
             onClick={decrementQuantity}
           >
             <Image
@@ -141,7 +134,7 @@ export default function AddToCart({
           />
           <button
             type="button"
-            aria-label={translate("ariaLabels.increaseQuantity")}
+            aria-label={t("ariaLabels.increaseQuantity")}
             onClick={incrementQuantity}
           >
             <Image
@@ -159,7 +152,7 @@ export default function AddToCart({
           onClick={handleAddToCart}
           disabled={!selectedVariant || !isAvailableForSale || loading}
         >
-          {translate("addToCart")}
+          {t("addToCart")}
         </button>
       </div>
     </>

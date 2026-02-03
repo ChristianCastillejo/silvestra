@@ -11,7 +11,6 @@ import { cn } from "@/utils/cn";
 
 export default function ContactForm() {
   const t = useTranslations("Contact");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
@@ -24,10 +23,10 @@ export default function ContactForm() {
   const contactSchema = z.object({
     email: z
       .string()
-      .min(1, translate("validation.emailRequired"))
-      .email(translate("validation.emailInvalid")),
-    name: z.string().min(1, translate("validation.nameRequired")),
-    message: z.string().min(1, translate("validation.messageRequired")),
+      .min(1, t("validation.emailRequired"))
+      .email(t("validation.emailInvalid")),
+    name: z.string().min(1, t("validation.nameRequired")),
+    message: z.string().min(1, t("validation.messageRequired")),
   });
 
   const handleInputChange = (
@@ -86,7 +85,7 @@ export default function ContactForm() {
       if (!contentType || !contentType.includes("application/json")) {
         const text = await response.text();
         toast.error(
-          `${translate("errors.serverError")}: ${text || response.statusText}`
+          `${t("errors.serverError")}: ${text || response.statusText}`
         );
         return;
       }
@@ -97,19 +96,19 @@ export default function ContactForm() {
       };
 
       if (!response.ok) {
-        const errorMessage = data.message ?? translate("errors.failedToSend");
+        const errorMessage = data.message ?? t("errors.failedToSend");
         toast.error(errorMessage);
         return;
       }
 
-      setMessage(data.message ?? translate("success.messageSent"));
+      setMessage(data.message ?? t("success.messageSent"));
       setFormData({ name: "", email: "", message: "" });
       setErrors({});
     } catch (error: unknown) {
       const errorMessage =
         error instanceof Error
           ? error.message
-          : translate("errors.unknownError");
+          : t("errors.unknownError");
       toast.error(errorMessage);
     } finally {
       setLoading(false);
@@ -122,7 +121,7 @@ export default function ContactForm() {
         <div className="flex-1">
           <Input
             type="text"
-            placeholder={translate("form.namePlaceholder")}
+            placeholder={t("form.namePlaceholder")}
             name="name"
             value={formData.name}
             onChange={handleInputChange}
@@ -136,7 +135,7 @@ export default function ContactForm() {
         <div className="flex-1">
           <Input
             type="email"
-            placeholder={translate("form.emailPlaceholder")}
+            placeholder={t("form.emailPlaceholder")}
             name="email"
             value={formData.email}
             onChange={handleInputChange}
@@ -151,7 +150,7 @@ export default function ContactForm() {
 
       <Textarea
         rows={8}
-        placeholder={translate("form.messagePlaceholder")}
+        placeholder={t("form.messagePlaceholder")}
         name="message"
         value={formData.message}
         onChange={handleInputChange}
@@ -167,7 +166,7 @@ export default function ContactForm() {
         isLoading={loading}
         className={cn("!w-fit !px-10")}
       >
-        {translate("form.sendButton")}
+        {t("form.sendButton")}
       </Button>
       {message && <p className="text-gray">{message}</p>}
     </div>

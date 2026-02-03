@@ -28,8 +28,6 @@ export async function generateMetadata({
   const t = await getTranslations(
     "Product" as unknown as Parameters<typeof getTranslations>[0]
   );
-  const translate = (key: string): string =>
-    t(key as unknown as Parameters<typeof t>[0]) as string;
 
   const { handle } = await params;
   const currency =
@@ -38,14 +36,14 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: translate("metadata.notFound"),
+      title: t("metadata.notFound"),
     };
   }
 
   const productImage = product.images?.[0]?.url;
   const description =
     product.description ||
-    `${product.title} - ${translate("metadata.availableNow")}`;
+    `${product.title} - ${t("metadata.availableNow")}`;
   const seo = product.seo as SeoFragment | null | undefined;
   const seoTitle = seo?.title || product.title;
   const seoDescription = seo?.description || description;
@@ -59,15 +57,15 @@ export async function generateMetadata({
       description: seoDescription,
       images: productImage
         ? [
-            {
-              url: productImage,
-              alt: product.images[0]?.altText || product.title,
-              width: product.images[0]?.width || 1200,
-              height: product.images[0]?.height || 630,
-            },
-          ]
+          {
+            url: productImage,
+            alt: product.images[0]?.altText || product.title,
+            width: product.images[0]?.width || 1200,
+            height: product.images[0]?.height || 630,
+          },
+        ]
         : [],
-      siteName: translate("metadata.siteName"),
+      siteName: t("metadata.siteName"),
     },
     twitter: {
       card: "summary_large_image",

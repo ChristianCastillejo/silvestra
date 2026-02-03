@@ -2,7 +2,7 @@ import { Playfair_Display, Instrument_Sans } from "next/font/google";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Toaster } from "sonner";
 import "@/style/theme.css";
 import "@/style/global.scss";
@@ -16,7 +16,11 @@ import Footer from "@/components/layout/footer";
 import FacebookPixel from "@/components/pixels/facebook-pixel";
 import settings from "@/settings.json";
 import { CountryCode } from "@/gql/graphql";
-import { routing } from "@/i18n/routing";
+import { routing, isValidLocale } from "@/i18n/routing";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
@@ -29,23 +33,25 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations(
-    "Layout" as unknown as Parameters<typeof getTranslations>[0]
-  );
-  const translate = (key: string): string =>
-    t(key as unknown as Parameters<typeof t>[0]) as string;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+
+  const t = await getTranslations({ locale, namespace: "Layout" });
 
   return {
     title: {
-      default: translate("metadata.title"),
-      template: translate("metadata.titleTemplate"),
+      default: t("metadata.title"),
+      template: t("metadata.titleTemplate"),
     },
-    description: translate("metadata.description"),
+    description: t("metadata.description"),
     openGraph: {
       type: "website",
-      locale: "en_US",
-      siteName: translate("metadata.siteName"),
+      locale: locale,
+      siteName: t("metadata.siteName"),
     },
     twitter: {
       card: "summary_large_image",
@@ -64,9 +70,11 @@ export default async function LocaleLayout({
 }: LocaleLayoutProps) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!isValidLocale(locale)) {
     return null;
   }
+
+  setRequestLocale(locale);
 
   const messages = await getMessages();
   const cartId = (await cookies()).get("cartId")?.value;

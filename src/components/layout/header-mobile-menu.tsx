@@ -47,7 +47,6 @@ const MenuHeader = ({
   close,
 }: MenuHeaderProps): React.JSX.Element => {
   const t = useTranslations("Header");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
 
   return (
     <div className="py-4 px-8 w-full h-fit border-b border-border flex justify-between">
@@ -57,8 +56,8 @@ const MenuHeader = ({
         type="button"
         aria-label={
           isRoot
-            ? translate("mobileMenu.ariaLabels.closeMenu")
-            : translate("mobileMenu.ariaLabels.goBack")
+            ? t("mobileMenu.ariaLabels.closeMenu")
+            : t("mobileMenu.ariaLabels.goBack")
         }
       >
         {!isRoot && (
@@ -82,7 +81,7 @@ const MenuHeader = ({
           <button
             className="cursor-pointer"
             type="button"
-            aria-label={translate("mobileMenu.ariaLabels.closeMenu")}
+            aria-label={t("mobileMenu.ariaLabels.closeMenu")}
           >
             <Image
               src="/icons/icon-close.svg"
@@ -98,7 +97,7 @@ const MenuHeader = ({
           onClick={closeMenu}
           className="cursor-pointer"
           type="button"
-          aria-label={translate("mobileMenu.ariaLabels.closeMenu")}
+          aria-label={t("mobileMenu.ariaLabels.closeMenu")}
         >
           <Image
             src="/icons/icon-close.svg"
@@ -119,10 +118,6 @@ const MenuItems = ({
   handleCloseMenu,
 }: MenuItemsProps): React.JSX.Element | null => {
   const t = useTranslations("Header");
-  const translate = (key: string, values?: Record<string, string | number>) =>
-    values
-      ? (t(key as Parameters<typeof t>[0], values) as string)
-      : (t(key as Parameters<typeof t>[0]) as string);
 
   if (!items?.length) {
     return null;
@@ -152,9 +147,9 @@ const MenuItems = ({
                 onClick={() => onClick(item)}
                 type="button"
                 aria-expanded={false}
-                aria-label={translate("mobileMenu.ariaLabels.openSubmenu", {
+                aria-label={t("mobileMenu.ariaLabels.openSubmenu", {
                   title: item.title,
-                } as Record<string, string>)}
+                })}
               >
                 <Image
                   src="/icons/icon-chevron.svg"
@@ -210,7 +205,6 @@ export default function MobileMenu({
   menu,
 }: MobileMenuProps): React.JSX.Element | null {
   const t = useTranslations("Header");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const [childMenu, setChildMenu] = useState<MenuItem | null>(null);
   const [grandchildMenu, setGrandchildMenu] = useState<MenuItem | null>(null);
   const [closingChildMenu, setClosingChildMenu] = useState<boolean>(false);
@@ -260,7 +254,7 @@ export default function MobileMenu({
         <div className="relative w-full h-full flex flex-col">
           <MenuHeader
             isRoot={true}
-            title={translate("mobileMenu.title")}
+            title={t("mobileMenu.title")}
             closeMenu={handleCloseMenu}
             close={() => {}}
           />

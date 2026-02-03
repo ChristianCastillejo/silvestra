@@ -16,7 +16,6 @@ import { Sheet, SheetContent, SheetTitle, SheetClose } from "../ui/sheet";
 
 export default function CartDrawer(): ReactNode {
   const t = useTranslations("Cart");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const { cart, updateCartItem } = useCart();
   const quantityRef = useRef<number | undefined>(cart?.totalQuantity);
 
@@ -73,13 +72,13 @@ export default function CartDrawer(): ReactNode {
         <SheetContent side="right" className="flex flex-col p-0">
           <div className="py-4 px-8 border-b border-border flex justify-between items-center">
             <SheetTitle className="text-lg font-semibold">
-              {translate("title")}
+              {t("title")}
             </SheetTitle>
             <SheetClose asChild>
               <button
                 type="button"
                 className="cursor-pointer hover:opacity-70 flex items-center justify-center"
-                aria-label={translate("ariaLabels.closeCart")}
+                aria-label={t("ariaLabels.closeCart")}
               >
                 <Image
                   src="/icons/icon-close.svg"
@@ -95,7 +94,7 @@ export default function CartDrawer(): ReactNode {
           {!cart || cart.lines.length === 0 ? (
             <div className="p-8 flex-grow flex justify-center flex-col items-center">
               <span className="text-xl font-medium">
-                {translate("emptyCart")}
+                {t("emptyCart")}
               </span>
               <Button
                 type="button"
@@ -106,7 +105,7 @@ export default function CartDrawer(): ReactNode {
                   closeCart();
                 }}
               >
-                {translate("continueShopping")}
+                {t("continueShopping")}
               </Button>
             </div>
           ) : (
@@ -122,7 +121,7 @@ export default function CartDrawer(): ReactNode {
               </div>
               <div className="bg-bg-gray border-t border-border p-[30px]">
                 <div className="flex justify-between font-medium text-lg">
-                  <div>{translate("subtotal")}</div>
+                  <div>{t("subtotal")}</div>
                   <div>
                     {formatMoney(
                       cart.cost.subtotalAmount.amount,
@@ -130,7 +129,7 @@ export default function CartDrawer(): ReactNode {
                     )}
                   </div>
                 </div>
-                <p className="text-sm mb-5">{translate("shippingNote")}</p>
+                <p className="text-sm mb-5">{t("shippingNote")}</p>
                 <form action={handleRedirectToCheckout}>
                   <CheckoutButton />
                 </form>
@@ -145,12 +144,11 @@ export default function CartDrawer(): ReactNode {
 
 function CheckoutButton(): ReactNode {
   const t = useTranslations("Cart");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const { pending } = useFormStatus();
 
   return (
     <Button variant="fill" type="submit" isLoading={pending}>
-      {translate("checkout")}
+      {t("checkout")}
     </Button>
   );
 }

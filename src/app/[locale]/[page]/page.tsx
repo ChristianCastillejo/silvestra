@@ -14,17 +14,13 @@ export async function generateMetadata({
 }: {
   params: Promise<DynamicPageParams>;
 }): Promise<Metadata> {
-  const t = await getTranslations(
-    "DynamicPage" as unknown as Parameters<typeof getTranslations>[0]
-  );
-  const translate = (key: string): string =>
-    t(key as unknown as Parameters<typeof t>[0]) as string;
+  const t = await getTranslations("DynamicPage");
 
   const { page: pageHandle } = await params;
 
   if (!pageHandle || typeof pageHandle !== "string") {
     return {
-      title: translate("metadata.notFound"),
+      title: t("metadata.notFound"),
     };
   }
 
@@ -32,7 +28,7 @@ export async function generateMetadata({
 
   if (!page) {
     return {
-      title: translate("metadata.notFound"),
+      title: t("metadata.notFound"),
     };
   }
 
@@ -49,7 +45,7 @@ export async function generateMetadata({
       description,
       publishedTime: page.createdAt,
       modifiedTime: page.updatedAt,
-      siteName: translate("metadata.siteName"),
+      siteName: t("metadata.siteName"),
     },
     twitter: {
       card: "summary",
@@ -58,20 +54,11 @@ export async function generateMetadata({
     },
   };
 }
-
 export default async function DynamicPage({
   params,
 }: PageProps<DynamicPageParams>) {
-  const t = await getTranslations(
-    "DynamicPage" as unknown as Parameters<typeof getTranslations>[0]
-  );
-  const translate = (
-    key: string,
-    values?: Record<string, string | number | Date>
-  ): string =>
-    values
-      ? (t(key as unknown as Parameters<typeof t>[0], values) as string)
-      : (t(key as unknown as Parameters<typeof t>[0]) as string);
+
+  const t = await getTranslations("DynamicPage");
 
   const { page: pageHandle } = await params;
 
@@ -102,9 +89,7 @@ export default async function DynamicPage({
       />
 
       <p className="mt-16 text-sm italic text-neutral-500">
-        {translate("lastUpdated", {
-          date: lastUpdatedDate,
-        } as Record<string, string | number>)}
+        {t("lastUpdated", { date: lastUpdatedDate })}
       </p>
     </div>
   );

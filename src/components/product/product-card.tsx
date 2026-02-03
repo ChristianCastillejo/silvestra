@@ -25,13 +25,6 @@ export default function ProductCard({ product }: Props) {
   }
 
   const t = useTranslations("Card");
-  const translate = (
-    key: string,
-    values?: Record<string, string | number | Date>
-  ) =>
-    values
-      ? (t(key as Parameters<typeof t>[0], values) as string)
-      : (t(key as Parameters<typeof t>[0]) as string);
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
   const [loading, setLoading] = useState(false);
   const { addCartItem, cart, setCart } = useCart();
@@ -61,11 +54,11 @@ export default function ProductCard({ product }: Props) {
       : 0;
 
     if (currentQuantityInCart + quantity > quantityAvailable) {
-      const maxQuantityMessage = translate("errors.maxQuantity", {
+      const maxQuantityMessage = t("errors.maxQuantity", {
         quantity: quantityAvailable,
         productTitle: product.title,
         variantTitle: variant.title,
-      } as Record<string, string | number>);
+      });
       toast.error(maxQuantityMessage);
       setLoading(false);
       return;
@@ -93,7 +86,7 @@ export default function ProductCard({ product }: Props) {
       const errorMessage =
         error instanceof Error
           ? error.message
-          : translate("errors.unexpectedError");
+          : t("errors.unexpectedError");
       toast.error(errorMessage);
     } finally {
       setLoading(false);
@@ -116,7 +109,7 @@ export default function ProductCard({ product }: Props) {
 
         {!product.availableForSale && (
           <CardBadge position="topRight">
-            <Badge variant="secondary">{translate("outOfStock")}</Badge>
+            <Badge variant="secondary">{t("outOfStock")}</Badge>
           </CardBadge>
         )}
 
@@ -139,7 +132,7 @@ export default function ProductCard({ product }: Props) {
                 )}
               >
                 <Link href={`/products/${product.handle}`}>
-                  {translate("selectVariant")}
+                  {t("selectVariant")}
                 </Link>
               </Button>
             ) : (
@@ -153,9 +146,9 @@ export default function ProductCard({ product }: Props) {
                 className={cn(
                   "!absolute !w-[calc(100%-2rem)] bottom-0 left-[1rem] opacity-0 group-hover:bottom-[1rem] group-hover:opacity-100 transition-ease focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 )}
-                aria-label={translate("addToCartAriaLabel")}
+                aria-label={t("addToCartAriaLabel")}
               >
-                {translate("addToCart")}
+                {t("addToCart")}
               </Button>
             )}
           </div>
