@@ -16,24 +16,23 @@ import {
 
 export default function ProductDetails(): React.JSX.Element {
   const t = useTranslations("Product");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const { product, selectedVariant } = useProductContext();
   const isSingleProduct = product.variants.length <= 1;
 
   const careAndMaintenance = (
     <>
-      <p>{translate("careAndMaintenance.intro")}</p>
-      <p>{translate("careAndMaintenance.paragraph1")}</p>
-      <p>{translate("careAndMaintenance.paragraph2")}</p>
+      <p>{t("careAndMaintenance.intro")}</p>
+      <p>{t("careAndMaintenance.paragraph1")}</p>
+      <p>{t("careAndMaintenance.paragraph2")}</p>
       <ul>
-        <li>{translate("careAndMaintenance.light")}</li>
-        <li>{translate("careAndMaintenance.water")}</li>
-        <li>{translate("careAndMaintenance.temperature")}</li>
+        <li>{t("careAndMaintenance.light")}</li>
+        <li>{t("careAndMaintenance.water")}</li>
+        <li>{t("careAndMaintenance.temperature")}</li>
       </ul>
       <p>
-        {translate("careAndMaintenance.guideText")}{" "}
+        {t("careAndMaintenance.guideText")}{" "}
         <Link href="/care" className="text-primary">
-          {translate("careAndMaintenance.guideLink")}
+          {t("careAndMaintenance.guideLink")}
         </Link>
       </p>
     </>
@@ -41,12 +40,12 @@ export default function ProductDetails(): React.JSX.Element {
 
   const shippingAndReturn = (
     <>
-      <p>{translate("shippingAndReturn.intro")}</p>
-      <p>{translate("shippingAndReturn.paragraph1")}</p>
+      <p>{t("shippingAndReturn.intro")}</p>
+      <p>{t("shippingAndReturn.paragraph1")}</p>
       <p>
-        {translate("shippingAndReturn.paragraph2")}{" "}
+        {t("shippingAndReturn.paragraph2")}{" "}
         <Link href="/care" className="text-primary">
-          {translate("shippingAndReturn.guaranteeLink")}
+          {t("shippingAndReturn.guaranteeLink")}
         </Link>
       </p>
     </>
@@ -94,7 +93,7 @@ export default function ProductDetails(): React.JSX.Element {
             className="border-y border-border overflow-hidden transition-all duration-300"
           >
             <AccordionTrigger className="h-[60px] font-semibold">
-              {translate("accordion.description")}
+              {t("accordion.description")}
             </AccordionTrigger>
             <AccordionContent>
               {product?.descriptionHtml && (
@@ -109,7 +108,7 @@ export default function ProductDetails(): React.JSX.Element {
             className="border-y border-border overflow-hidden transition-all duration-300"
           >
             <AccordionTrigger className="h-[60px] font-semibold">
-              {translate("accordion.careAndMaintenance")}
+              {t("accordion.careAndMaintenance")}
             </AccordionTrigger>
             <AccordionContent>{careAndMaintenance}</AccordionContent>
           </AccordionItem>
@@ -118,7 +117,7 @@ export default function ProductDetails(): React.JSX.Element {
             className="border-y border-border overflow-hidden transition-all duration-300"
           >
             <AccordionTrigger className="h-[60px] font-semibold">
-              {translate("accordion.shippingAndReturn")}
+              {t("accordion.shippingAndReturn")}
             </AccordionTrigger>
             <AccordionContent>{shippingAndReturn}</AccordionContent>
           </AccordionItem>

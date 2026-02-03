@@ -28,7 +28,6 @@ export default function FeaturedCollections({
   collections,
 }: Props): React.JSX.Element | null {
   const t = useTranslations("FeaturedCollections");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -122,7 +121,7 @@ export default function FeaturedCollections({
             type="button"
             onClick={() => handleScroll(-1)}
             className="swiper-arrow swipe-left left-8 -rotate-90 hidden md:flex absolute top-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 ease-in-out group-hover/parent:left-10 group-hover/parent:opacity-100"
-            aria-label={translate("ariaLabels.scrollLeft")}
+            aria-label={t("ariaLabels.scrollLeft")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +153,7 @@ export default function FeaturedCollections({
             type="button"
             onClick={() => handleScroll(1)}
             className="swiper-arrow swipe-right right-8 -rotate-90 hidden md:flex absolute top-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 ease-in-out group-hover/parent:right-10 group-hover/parent:opacity-100"
-            aria-label={translate("ariaLabels.scrollRight")}
+            aria-label={t("ariaLabels.scrollRight")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

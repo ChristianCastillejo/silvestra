@@ -21,10 +21,6 @@ interface Props {
 
 export default function CurrencySelect({ currencyCookie, className }: Props) {
   const t = useTranslations("CurrencySelect");
-  const translate = (key: string, values?: Record<string, string | number>) =>
-    values
-      ? (t(key as Parameters<typeof t>[0], values) as string)
-      : (t(key as Parameters<typeof t>[0]) as string);
 
   const currency: Localization =
     settings.localizations.find(
@@ -70,11 +66,11 @@ export default function CurrencySelect({ currencyCookie, className }: Props) {
             event.preventDefault();
             handleChangeCurrency(locale.countryCode);
           }}
-          aria-label={translate("ariaLabels.selectCurrency", {
+          aria-label={t("ariaLabels.selectCurrency", {
             country: locale.country,
             currency: locale.currency,
             prefix: locale.prefix,
-          } as Record<string, string | number>)}
+          })}
         >
           {`${locale.country} (${locale.currency} ${locale.prefix})`}
         </button>

@@ -41,7 +41,6 @@ export default function CartDrawerItem({
   updateCartItem,
 }: Props): ReactNode {
   const t = useTranslations("Cart");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const isSingleProdct = item.merchandise.product.variants.length <= 1;
 
@@ -104,10 +103,10 @@ export default function CartDrawerItem({
           <button
             type="button"
             className="cursor-pointer hover:opacity-70 flex items-center justify-center"
-            aria-label={translate("ariaLabels.deleteItem")}
+            aria-label={t("ariaLabels.deleteItem")}
             onClick={async () => {
               if (!item.id) {
-                setErrorMsg(translate("errors.missingItemId"));
+                setErrorMsg(t("errors.missingItemId"));
                 return;
               }
               updateCartItem(item.merchandise.id, 0);

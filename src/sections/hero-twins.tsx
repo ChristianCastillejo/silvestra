@@ -6,18 +6,17 @@ import { Container } from "@/components/ui/container";
 
 export default function HeroTwins(): React.JSX.Element {
   const t = useTranslations("HeroTwins");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
 
   const images = [
     {
       src: "/images/twins-1.jpg",
-      alt: translate("image1.alt"),
-      description: translate("image1.description"),
+      alt: t("image1.alt"),
+      description: t("image1.description"),
     },
     {
       src: "/images/twins-2.jpg",
-      alt: translate("image2.alt"),
-      description: translate("image2.description"),
+      alt: t("image2.alt"),
+      description: t("image2.description"),
     },
   ] as const;
 

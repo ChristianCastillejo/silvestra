@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import crypto from "crypto";
-import { handleApiError } from "@/lib/utils";
 
 const FACEBOOK_PIXEL_ID = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID;
 const FACEBOOK_ACCESS_TOKEN = process.env.FACEBOOK_ACCESS_TOKEN;
 const SHOPIFY_WEBHOOK_SECRET = process.env.SHOPIFY_WEBHOOK_SECRET;
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL
 
 interface LineItem {
   product_id: number;
@@ -38,24 +37,41 @@ interface OrderData {
   customer_ip?: string;
 }
 
-function verifyShopifyWebhook(
+async function verifyShopifyWebhook(
   body: string,
   hmacHeader: string | null
-): boolean {
+): Promise<boolean> {
   if (!SHOPIFY_WEBHOOK_SECRET || !hmacHeader) {
     return false;
   }
 
-  const hash = crypto
-    .createHmac("sha256", SHOPIFY_WEBHOOK_SECRET)
-    .update(body, "utf8")
-    .digest("base64");
+  const encoder = new TextEncoder();
+  const keyData = encoder.encode(SHOPIFY_WEBHOOK_SECRET);
+  const data = encoder.encode(body);
+
+  const key = await crypto.subtle.importKey(
+    "raw",
+    keyData,
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+
+  const signature = await crypto.subtle.sign("HMAC", key, data);
+
+  const hash = btoa(String.fromCharCode(...Array.from(new Uint8Array(signature))));
 
   return hash === hmacHeader;
 }
 
-function hashData(data: string): string {
-  return crypto.createHash("sha256").update(data).digest("hex");
+async function hashData(data: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const dataBuffer = encoder.encode(data);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", dataBuffer);
+
+  return Array.from(new Uint8Array(hashBuffer))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
 }
 
 async function sendPurchaseEvent(order: OrderData): Promise<void> {
@@ -63,6 +79,10 @@ async function sendPurchaseEvent(order: OrderData): Promise<void> {
     console.error("Facebook Pixel configuration missing");
     return;
   }
+
+  const hashedEmail = order.customer_email
+    ? await hashData(order.customer_email)
+    : undefined;
 
   const url = `https://graph.facebook.com/v18.0/${FACEBOOK_PIXEL_ID}/events`;
 
@@ -72,9 +92,9 @@ async function sendPurchaseEvent(order: OrderData): Promise<void> {
         event_name: "Purchase",
         event_time: Math.floor(Date.now() / 1000),
         action_source: "website",
-        event_source_url: "https://headless-shopify-boilerplate.vercel.app",
+        event_source_url: SITE_URL,
         user_data: {
-          em: order.customer_email ? [hashData(order.customer_email)] : [],
+          em: hashedEmail ? [hashedEmail] : [],
           client_ip_address: order.customer_ip || "",
         },
         custom_data: {
@@ -97,7 +117,7 @@ async function sendPurchaseEvent(order: OrderData): Promise<void> {
     });
 
     if (!response.ok) {
-      const result = (await response.json()) as unknown;
+      const result = await response.json();
       console.error("Facebook API error:", result);
     }
   } catch (error: unknown) {
@@ -122,7 +142,8 @@ export async function POST(
       );
     }
 
-    if (!verifyShopifyWebhook(rawBody, hmacHeader)) {
+    const isValid = await verifyShopifyWebhook(rawBody, hmacHeader);
+    if (!isValid) {
       return NextResponse.json(
         { message: "Invalid webhook signature" },
         { status: 401 }
@@ -132,7 +153,7 @@ export async function POST(
     let body: ShopifyOrder;
     try {
       body = JSON.parse(rawBody) as ShopifyOrder;
-    } catch (error: unknown) {
+    } catch (error) {
       return NextResponse.json(
         { message: "Invalid JSON payload" },
         { status: 400 }
@@ -170,6 +191,7 @@ export async function POST(
       "Error handling webhook:",
       error instanceof Error ? error.message : "Unknown error"
     );
-    return handleApiError(error);
+
+    return NextResponse.json({ message: "Internal Error" }, { status: 500 });
   }
 }

@@ -15,11 +15,7 @@ import { Container } from "@/components/ui/container";
 import settings from "../../settings.json";
 
 export default async function Footer(): Promise<React.JSX.Element> {
-  const t = await getTranslations(
-    "Footer" as unknown as Parameters<typeof getTranslations>[0]
-  );
-  const translate = (key: string): string =>
-    t(key as unknown as Parameters<typeof t>[0]) as string;
+  const t = await getTranslations("Footer");
 
   const menus = await getMenus(settings.components.footer.menus);
 
@@ -29,7 +25,7 @@ export default async function Footer(): Promise<React.JSX.Element> {
         <div className="flex justify-center items-start py-14 max-md:flex-col max-md:pt-7 max-md:pb-0 md:gap-8 lg:gap-20">
           <section className="flex-shrink-0 px-4 max-md:px-0 md:hidden">
             <h3 className="text-base font-medium py-2">
-              {translate("contact")}
+              {t("contact")}
             </h3>
 
             <div className="flex flex-col mt-5 gap-2">
@@ -76,9 +72,8 @@ export default async function Footer(): Promise<React.JSX.Element> {
                 <AccordionItem
                   key={index}
                   value={`menu-${index}`}
-                  className={`border-y border-border overflow-hidden transition-all duration-300 ${
-                    index === 0 ? "mt-5 border-b-0" : ""
-                  }`}
+                  className={`border-y border-border overflow-hidden transition-all duration-300 ${index === 0 ? "mt-5 border-b-0" : ""
+                    }`}
                 >
                   <AccordionTrigger className="h-[60px] font-semibold">
                     {menu.title}
@@ -101,7 +96,7 @@ export default async function Footer(): Promise<React.JSX.Element> {
           </Accordion>
           <section className="flex-shrink-0 px-4 max-md:px-0 max-md:hidden">
             <h3 className="text-base font-medium py-5">
-              {translate("contact")}
+              {t("contact")}
             </h3>
 
             <div className="flex flex-col mt-5 gap-2">
@@ -127,7 +122,7 @@ export default async function Footer(): Promise<React.JSX.Element> {
         <div className="flex gap-5 max-md:flex-col max-md:items-start">
           <LanguageSwitcher className="pl-0" />
           <span className="self-center text-gray">
-            {translate("copyright")}
+            {t("copyright")}
           </span>
         </div>
         <Image

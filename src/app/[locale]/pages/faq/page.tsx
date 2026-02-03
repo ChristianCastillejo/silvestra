@@ -7,18 +7,14 @@ import type { PageFragment, SeoFragment } from "@/gql/graphql";
 import Image from "next/image";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations(
-    "FAQ" as unknown as Parameters<typeof getTranslations>[0]
-  );
-  const translate = (key: string): string =>
-    t(key as unknown as Parameters<typeof t>[0]) as string;
+  const t = await getTranslations("FAQ");
 
   const page = (await getPage("faq")) as PageFragment | null;
 
   const seo = page?.seo as SeoFragment | null | undefined;
-  const title = seo?.title || page?.title || translate("metadata.title");
+  const title = seo?.title || page?.title || t("metadata.title");
   const description =
-    seo?.description || page?.bodySummary || translate("metadata.description");
+    seo?.description || page?.bodySummary || t("metadata.description");
 
   return {
     title,
@@ -29,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       publishedTime: page?.createdAt,
       modifiedTime: page?.updatedAt,
-      siteName: translate("metadata.siteName"),
+      siteName: t("metadata.siteName"),
     },
     twitter: {
       card: "summary",
@@ -40,11 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function FAQPage() {
-  const t = await getTranslations(
-    "FAQ" as unknown as Parameters<typeof getTranslations>[0]
-  );
-  const translate = (key: string): string =>
-    t(key as unknown as Parameters<typeof t>[0]) as string;
+  const t = await getTranslations("FAQ");
 
   const page = (await getPage("faq")) as PageFragment | null;
 
@@ -62,7 +54,7 @@ export default async function FAQPage() {
 
       {!page && (
         <div className="flex flex-col items-center mt-[180px]">
-          <h1 className="text-center mb-2">{translate("heading")}</h1>
+          <h1 className="text-center mb-2">{t("heading")}</h1>
         </div>
       )}
 
@@ -73,7 +65,7 @@ export default async function FAQPage() {
       <div className="relative w-full overflow-hidden rounded-2xl aspect-[4/3] md:rounded-[36px] md:max-w-5xl mx-auto mt-20">
         <Image
           src="/images/cicle.jpg"
-          alt={translate("imageAlt")}
+          alt={t("imageAlt")}
           fill
           className="object-cover"
           sizes="(min-width: 1024px) 1000px, (min-width: 768px) 80vw, 100vw"

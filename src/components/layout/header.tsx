@@ -15,7 +15,6 @@ interface HeaderProps {
 
 export default function Header({ menu }: HeaderProps): React.JSX.Element {
   const t = useTranslations("Header");
-  const translate = (key: string) => t(key as Parameters<typeof t>[0]);
   const [open, setOpen] = useState<boolean>(false);
 
   const closeMenu = (): void => {
@@ -50,13 +49,13 @@ export default function Header({ menu }: HeaderProps): React.JSX.Element {
         <div className="w-1/5 flex items-center">
           <Link
             href="/"
-            aria-label={translate("ariaLabels.goToHome")}
+            aria-label={t("ariaLabels.goToHome")}
             className="group flex items-center gap-3 max-md:hidden"
           >
             <div className="relative h-10 w-10 shrink-0">
               <Image
                 src="/logo.svg"
-                alt={translate("logoAlt")}
+                alt={t("logoAlt")}
                 fill
                 className="object-contain transition-transform duration-300 group-hover:scale-110"
                 priority
@@ -64,13 +63,13 @@ export default function Header({ menu }: HeaderProps): React.JSX.Element {
             </div>
 
             <h1 className="  font-bold tracking-tight text-black transition-colors group-hover:text-primary">
-              {translate("siteName")}
+              {t("siteName")}
             </h1>
           </Link>
           <button
             onClick={() => setOpen(true)}
             className="rotate-180 cursor-pointer hidden max-md:block"
-            aria-label={translate("ariaLabels.openMobileMenu")}
+            aria-label={t("ariaLabels.openMobileMenu")}
             aria-expanded={open}
             type="button"
           >
@@ -85,11 +84,11 @@ export default function Header({ menu }: HeaderProps): React.JSX.Element {
         <div className="w-3/5 flex justify-center items-center gap-10">
           <Link
             href="/"
-            aria-label={translate("ariaLabels.goToHome")}
+            aria-label={t("ariaLabels.goToHome")}
             className="group flex items-center flex-row gap-2 max-md:block hidden"
           >
             <h1 className=" font-bold tracking-tight text-black transition-colors group-hover:text-primary">
-              {translate("siteName")}
+              {t("siteName")}
             </h1>
           </Link>
 

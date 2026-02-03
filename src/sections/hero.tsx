@@ -13,10 +13,6 @@ import type { EmblaCarouselType } from "embla-carousel";
 
 export default function Hero(): React.JSX.Element {
   const t = useTranslations("Home.hero");
-  const translate = (key: string, values?: Record<string, string | number>) =>
-    values
-      ? (t(key as Parameters<typeof t>[0], values) as string)
-      : (t(key as Parameters<typeof t>[0]) as string);
 
   const slides = [
     {
@@ -112,9 +108,9 @@ export default function Hero(): React.JSX.Element {
                 type="button"
                 className="group flex items-center justify-center w-8 h-8 cursor-pointer pointer-events-auto"
                 onClick={() => scrollTo(index)}
-                aria-label={translate("slideIndicator", {
+                aria-label={t("slideIndicator", {
                   number: index + 1,
-                } as Record<string, string | number>)}
+                })}
               >
                 <span
                   className={`block w-[10px] h-[10px] rounded-full bg-white outline outline-1 outline-white transition-all duration-300 ${
