@@ -58,9 +58,8 @@ export default function Hero(): React.JSX.Element {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute h-full w-full transition-opacity duration-1000 pointer-events-none ${
-              index === activeIndex ? "opacity-100 z-30" : "opacity-0 z-0"
-            }`}
+            className={`absolute h-full w-full transition-opacity duration-1000 pointer-events-none ${index === activeIndex ? "opacity-100 z-30" : "opacity-0 z-0"
+              }`}
           >
             <Image
               src={slide.image}
@@ -73,15 +72,20 @@ export default function Hero(): React.JSX.Element {
             />
             <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/20 to-transparent rounded-2xl pointer-events-none" />
 
-            <div className="absolute bottom-[20%] left-[10%] flex flex-col gap-3 text-white max-w-[600px] pointer-events-none">
-              <h1 className="text-5xl font-medium">{slide.title}</h1>
-              <p className="text-white text-lg font-medium">
+
+            <div className="absolute bottom-20 left-5 right-5 md:bottom-[20%] md:left-[10%] md:right-auto flex flex-col gap-3 text-white max-w-[600px] pointer-events-none">
+              <h1 className="text-3xl md:text-5xl font-medium leading-tight md:leading-normal">
+                {slide.title}
+              </h1>
+
+              <p className="text-white text-sm md:text-lg font-medium opacity-90">
                 {slide.description}
               </p>
 
               <Button
                 asChild
-                className={cn("text-black !w-fit !px-10 pointer-events-auto")}
+                variant="fill"
+                className={cn("!w-fit !px-10 pointer-events-auto")}
               >
                 <Link href={slide.link.href}>{slide.link.text}</Link>
               </Button>
@@ -113,11 +117,10 @@ export default function Hero(): React.JSX.Element {
                 })}
               >
                 <span
-                  className={`block w-[10px] h-[10px] rounded-full bg-white outline outline-1 outline-white transition-all duration-300 ${
-                    index === activeIndex
-                      ? "outline-offset-6"
-                      : "group-hover:outline-offset-4 opacity-70 group-hover:opacity-100" // Hover sutil
-                  }`}
+                  className={`block w-[10px] h-[10px] rounded-full bg-white outline outline-1 outline-white transition-all duration-300 ${index === activeIndex
+                    ? "outline-offset-6"
+                    : "group-hover:outline-offset-4 opacity-70 group-hover:opacity-100"
+                    }`}
                 />
               </button>
             ))}
