@@ -98,7 +98,7 @@ export default function ProductCard({ product }: Props) {
       <CardHeader className="!w-full h-auto">
         <Link href={`/products/${product.handle}`}>
           <Image
-            className="w-full group-hover:scale-110 transition-cubic"
+            className="w-full aspect-[3/4] object-cover group-hover:scale-110 transition-cubic"
             height={imageHeight}
             width={imageWidth}
             src={selectedImage.url}
@@ -172,7 +172,7 @@ export default function ProductCard({ product }: Props) {
             </span>
           )}
         </div>
-        {product.images && product.images.length > 0 && (
+        {/* {product.images && product.images.length > 0 && (
           <div className="flex gap-3 mt-2 justify-center max-md:hidden">
             {product.images.map((img: ReshapedImage, i: number) => (
               <button
@@ -195,7 +195,7 @@ export default function ProductCard({ product }: Props) {
               </button>
             ))}
           </div>
-        )}
+        )} */}
       </CardContent>
     </UICard>
   );
