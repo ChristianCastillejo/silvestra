@@ -125,16 +125,17 @@ export default function Care() {
           <div className="flex w-full flex-col gap-6 md:gap-9">
             <div className="flex flex-col gap-4 md:gap-6">
               <div className="flex flex-col gap-4">
-                <div className="flex items-start gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                <div className="flex items-start gap-4 overflow-x-auto pb-2 w-full max-w-full scrollbar-hide">
                   {(Object.keys(tabConfigs) as TabId[]).map((tabId) => (
                     <Button
                       key={tabId}
                       onClick={() => setActiveTab(tabId)}
                       variant={activeTab === tabId ? "secondary" : "tertiary"}
+                      stable
                       className={cn(
                         "flex-shrink-0 !w-fit",
                         activeTab === tabId &&
-                          "hover:!bg-neutral-black hover:!border-neutral-black hover:!text-text-white"
+                        "hover:!bg-neutral-black hover:!border-neutral-black hover:!text-text-white"
                       )}
                     >
                       {translate(tabConfigs[tabId].tabTitleKey)}

@@ -79,7 +79,7 @@ export function CookieBanner() {
 
       <div className="flex flex-col gap-2 sm:flex-row">
         <Button
-          variant="fill"
+          variant="primary"
           size="sm"
           onClick={accept}
           className="text-xs h-9 whitespace-nowrap"

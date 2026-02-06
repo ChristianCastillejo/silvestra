@@ -54,7 +54,7 @@ export default function Hero(): React.JSX.Element {
       size="full"
       className="h-[calc(100vh-100px)] max-md:h-[70vh] relative overflow-hidden"
     >
-      <div className="relative w-full h-full bg-neutral-black rounded-2xl">
+      <div className="relative w-full h-full bg-neutral-black/40 rounded-2xl">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -84,7 +84,7 @@ export default function Hero(): React.JSX.Element {
 
               <Button
                 asChild
-                variant="fill"
+                variant="primary"
                 className={cn("!w-fit !px-10 pointer-events-auto")}
               >
                 <Link href={slide.link.href}>{slide.link.text}</Link>

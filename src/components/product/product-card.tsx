@@ -127,9 +127,8 @@ export default function ProductCard({ product }: Props) {
             {product.variants.length > 1 ? (
               <Button
                 asChild
-                className={cn(
-                  "!absolute !w-[calc(100%-2rem)] bottom-0 left-[1rem] opacity-0 group-hover:bottom-[1rem] group-hover:opacity-100 transition-ease"
-                )}
+                variant="primary"
+
               >
                 <Link href={`/products/${product.handle}`}>
                   {t("selectVariant")}
@@ -138,6 +137,7 @@ export default function ProductCard({ product }: Props) {
             ) : (
               <Button
                 type="button"
+                variant="primary"
                 onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
                   event.preventDefault();
                   handleAddToCart();

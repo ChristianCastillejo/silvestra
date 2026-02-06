@@ -162,7 +162,7 @@ export default function ContactForm() {
       )}
       <Button
         onClick={handlesubmit}
-        variant="fill"
+        variant="primary"
         isLoading={loading}
         className={cn("!w-fit !px-10")}
       >

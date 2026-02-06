@@ -39,9 +39,9 @@ export default function Newsletter({ className }: Props) {
       if (!response.ok) {
         const errorMessage =
           typeof data === "object" &&
-          data !== null &&
-          "message" in data &&
-          typeof (data as Record<string, unknown>).message === "string"
+            data !== null &&
+            "message" in data &&
+            typeof (data as Record<string, unknown>).message === "string"
             ? (data as SubscribeResponse).message
             : t("errors.subscribeFailed");
         toast.error(errorMessage);
@@ -88,7 +88,7 @@ export default function Newsletter({ className }: Props) {
         />
         <Button
           type="submit"
-          variant="fill"
+          variant="primary"
           isLoading={loading}
           className={cn(
             "!w-fit !px-10 text-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"

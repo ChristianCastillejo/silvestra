@@ -9,6 +9,7 @@ import { useCart } from "@/context/cart-context";
 import { addItem } from "../cart/actions";
 import type { ReshapedProduct } from "@/lib/shopify/index";
 import type { ProductFragment } from "@/gql/graphql";
+import { Button } from "../ui/button";
 
 interface Props {
   product: ReshapedProduct;
@@ -147,13 +148,14 @@ export default function AddToCart({
           </button>
         </div>
 
-        <button
-          className={`btn fill ${loading && "loading"} !w-fit !px-14`}
+        <Button
+          stable
+          variant="primary"
           onClick={handleAddToCart}
           disabled={!selectedVariant || !isAvailableForSale || loading}
         >
           {t("addToCart")}
-        </button>
+        </Button>
       </div>
     </>
   );

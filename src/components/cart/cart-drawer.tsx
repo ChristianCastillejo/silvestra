@@ -98,7 +98,7 @@ export default function CartDrawer(): ReactNode {
               </span>
               <Button
                 type="button"
-                variant="fill"
+                variant="primary"
                 className={cn("mt-5 !w-fit")}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -147,7 +147,7 @@ function CheckoutButton(): ReactNode {
   const { pending } = useFormStatus();
 
   return (
-    <Button variant="fill" type="submit" isLoading={pending}>
+    <Button variant="primary" type="submit" isLoading={pending}>
       {t("checkout")}
     </Button>
   );

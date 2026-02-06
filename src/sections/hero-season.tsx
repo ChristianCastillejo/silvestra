@@ -20,7 +20,7 @@ export default function HeroSeason(): React.JSX.Element {
               {t("description")}
             </p>
 
-            <Button asChild variant="secondary" className="!w-fit">
+            <Button asChild variant="secondary" >
               <Link href="/collections/jardines-eternos">
                 {t("buttonText")}
               </Link>
