@@ -9,6 +9,42 @@
       "description": "Handcrafted terrariums and living decoration that require minimal care. Natural art made in Sierra Morena.",
       "siteName": "Silvestra"
     },
+    "heroNew": {
+      "tagline": "Handmade in Sierra Morena",
+      "titlePart1": "Nature",
+      "titlePart2": "encapsulated.",
+      "description": "We bring the essence of the wild forest to your space. Premium design terrariums with minimal maintenance, designed for busy lives.",
+      "cta": "View Collection",
+      "features": {
+        "no_maintenance": {
+          "title": "Minimal Care",
+          "desc": "Self-sustaining ecosystems that require watering only a few times a year."
+        },
+        "guarantee": {
+          "title": "Premium Design",
+          "desc": "Unique handmade pieces that elevate the aesthetics of any home or business."
+        },
+        "shipping": {
+          "title": "Life Guarantee",
+          "desc": "Free advice and restoration service if your plant needs it."
+        }
+      },
+      "productHighlight": {
+        "imageLabel": "Ficus Ginseng Model",
+        "titlePart1": "A piece of forest,",
+        "titlePart2": "preserved in glass.",
+        "description": "We know you value the natural, but don't always have the time. Silvestra was born to close that gap: living decoration objects that demand no attention, only contemplation.",
+        "sustainability": {
+          "title": "Sustainability",
+          "desc": "Organic materials and reusable containers."
+        },
+        "craftsmanship": {
+          "title": "Craftsmanship",
+          "desc": "Assembled piece by piece in Sierra Morena."
+        },
+        "cta": "View Ginseng Model"
+      }
+    },
     "hero": {
       "slide1": {
         "title": "A piece of forest that takes care of itself (almost).",
@@ -528,6 +564,13 @@
   "Header": {
     "siteName": "Silvestra",
     "logoAlt": "Logo Icon",
+    "menu": {
+      "home": "Home",
+      "products": "Products",
+      "care": "Care",
+      "about": "About",
+      "contact": "Contact"
+    },
     "ariaLabels": {
       "goToHome": "Go to home page",
       "openMobileMenu": "Open mobile menu"
@@ -543,7 +586,26 @@
   },
   "Footer": {
     "contact": "Contact",
-    "copyright": "© 2025 Silvestra. All rights reserved."
+    "copyright": "© 2026 Silvestra. All rights reserved.",
+    "menu": {
+      "sections": {
+        "shop": "Shop",
+        "legal": "Legal",
+        "info": "Info"
+      },
+      "items": {
+        "terrariums": "Terrariums",
+        "care": "Care",
+        "legalNotice": "Legal Notice",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfPurchase": "Terms of Purchase",
+        "cookiesPolicy": "Cookies Policy",
+        "about": "About",
+        "shippingPolicy": "Shipping Policy",
+        "faqs": "FAQs",
+        "contact": "Contact"
+      }
+    }
   },
   "Cart": {
     "title": "Shopping cart",

@@ -11,7 +11,6 @@ import { CookieBanner } from "@/components/cookie-banner";
 import { cookies } from "next/headers";
 import { getCart } from "../../lib/shopify/index";
 import Header from "@/components/layout/header";
-import { getMenu } from "../../lib/shopify/index";
 import Footer from "@/components/layout/footer";
 import FacebookPixel from "@/components/pixels/facebook-pixel";
 import settings from "@/settings.json";
@@ -81,7 +80,6 @@ export default async function LocaleLayout({
   const currency =
     (await cookies()).get("currency")?.value || settings.defaultCurrency;
   const cart = getCart(cartId, currency as CountryCode);
-  const menu = await getMenu(settings.components.header.menu);
 
   return (
     <html lang={locale}>
@@ -91,7 +89,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <CartProvider cartPromise={cart}>
             <FacebookPixel />
-            <Header menu={menu} />
+            <Header />
             {children}
             <Footer />
             <CookieBanner />

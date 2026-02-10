@@ -39,7 +39,7 @@ export default function ProductMain(): React.JSX.Element {
   }
 
   return (
-    <Container as="section" className="!pt-5">
+    <Container as="section" className="pt-10 md:pt-20">
       <div className="flex gap-10 max-md:flex-col">
         <div className="w-1/2 max-md:w-full">
           <ProductGallery

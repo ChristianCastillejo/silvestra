@@ -9,7 +9,7 @@ export default async function NewsletterSection(): Promise<React.JSX.Element> {
 
   return (
     <Container as="section" size="full">
-      <Container size="full" className="bg-secondary !py-20 rounded-xl !mt-[80px]">
+      <Container size="full" className="bg-accent !py-20 rounded-xl !mt-[80px]">
         <h2 className="text-center text-white text-3xl max-md:text-2xl mb-5">
           {t("title")}
         </h2>

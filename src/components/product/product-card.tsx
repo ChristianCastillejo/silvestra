@@ -136,8 +136,8 @@ export default function ProductCard({ product }: Props) {
               </Button>
             ) : (
               <Button
-                type="button"
                 variant="primary"
+                size="lg"
                 onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
                   event.preventDefault();
                   handleAddToCart();

@@ -60,7 +60,7 @@ export function CookieBanner() {
       className={cn(
         "fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-2xl",
         "flex flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between",
-        "bg-neutral-white/90 backdrop-blur-md border border-border shadow-2xl rounded-2xl",
+        "bg-white/90 backdrop-blur-md border border-border shadow-2xl rounded-2xl",
         "transition-all duration-500 ease-out transform translate-y-0 opacity-100"
       )}
     >

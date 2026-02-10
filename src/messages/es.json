@@ -4,6 +4,42 @@
     "subtitle": "Descubre nuestra colección"
   },
   "Home": {
+    "heroNew": {
+      "tagline": "Hecho a mano en Sierra Morena",
+      "titlePart1": "Naturaleza",
+      "titlePart2": "encapsulada.",
+      "description": "Traemos la esencia del bosque salvaje a tu espacio. Terrarios de diseño premium con mantenimiento mínimo, pensados para vidas ocupadas.",
+      "cta": "Ver Colección",
+      "features": {
+        "no_maintenance": {
+          "title": "Mínimo Cuidado",
+          "desc": "Ecosistemas autosostenibles que requieren riego solo unas pocas veces al año."
+        },
+        "guarantee": {
+          "title": "Diseño Premium",
+          "desc": "Piezas artesanales únicas que elevan la estética de cualquier casa o negocio."
+        },
+        "shipping": {
+          "title": "Garantía de Vida",
+          "desc": "Asesoramiento gratuito y servicio de restauración si tu planta lo necesita."
+        }
+      },
+      "productHighlight": {
+        "imageLabel": "Modelo Ficus Ginseng",
+        "titlePart1": "Un trozo de bosque,",
+        "titlePart2": "preservado en cristal.",
+        "description": "Sabemos que valoras lo natural, pero no siempre tienes el tiempo. Silvestra nace para cerrar esa brecha: objetos de decoración viva que no demandan atención, solo contemplación.",
+        "sustainability": {
+          "title": "Sostenibilidad",
+          "desc": "Materiales orgánicos y envases reutilizables."
+        },
+        "craftsmanship": {
+          "title": "Artesanía",
+          "desc": "Montado pieza a pieza en Sierra Morena."
+        },
+        "cta": "Ver Modelo Ginseng"
+      }
+    },
     "metadata": {
       "title": "Silvestra - Arte Vivo de Sierra Morena",
       "description": "Terrarios artesanales y decoración viva que apenas requieren cuidados. Arte natural hecho en Sierra Morena.",
@@ -530,6 +566,13 @@
   "Header": {
     "siteName": "Silvestra",
     "logoAlt": "Logo Icono",
+    "menu": {
+      "home": "Inicio",
+      "products": "Productos",
+      "care": "Cuidados",
+      "about": "Nosotros",
+      "contact": "Contacto"
+    },
     "ariaLabels": {
       "goToHome": "Ir a la página de inicio",
       "openMobileMenu": "Abrir menú móvil"
@@ -545,7 +588,26 @@
   },
   "Footer": {
     "contact": "Contacto",
-    "copyright": "© 2025 Silvestra. Todos los derechos reservados."
+    "copyright": "© 2026 Silvestra. Todos los derechos reservados.",
+    "menu": {
+      "sections": {
+        "shop": "Tienda",
+        "legal": "Legal",
+        "info": "Información"
+      },
+      "items": {
+        "terrariums": "Terrarios",
+        "care": "Cuidados",
+        "legalNotice": "Aviso Legal",
+        "privacyPolicy": "Política de Privacidad",
+        "termsOfPurchase": "Condiciones de Compra",
+        "cookiesPolicy": "Política de Cookies",
+        "about": "Nosotros",
+        "shippingPolicy": "Política de Envíos",
+        "faqs": "Preguntas Frecuentes",
+        "contact": "Contacto"
+      }
+    }
   },
   "Cart": {
     "title": "Carrito de compras",

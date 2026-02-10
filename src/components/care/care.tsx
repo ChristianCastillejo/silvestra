@@ -130,12 +130,12 @@ export default function Care() {
                     <Button
                       key={tabId}
                       onClick={() => setActiveTab(tabId)}
-                      variant={activeTab === tabId ? "secondary" : "tertiary"}
                       stable
                       className={cn(
                         "flex-shrink-0 !w-fit",
-                        activeTab === tabId &&
-                        "hover:!bg-neutral-black hover:!border-neutral-black hover:!text-text-white"
+                        activeTab &&
+                        "hover:!bg-black/90 hover:!border-black/90 hover:!text-white",
+                        activeTab === tabId ? "bg-black/90 text-white" : "bg-transparent text-black",
                       )}
                     >
                       {translate(tabConfigs[tabId].tabTitleKey)}

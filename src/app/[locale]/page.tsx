@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations } from "next-intl/server";
 import Hero from "@/sections/hero";
-import HeroTwins from "@/sections/hero-twins";
-import HeroSeason from "@/sections/hero-season";
 import FeaturedProducts from "@/sections/featured-products";
 import FeaturedProductsSkeleton from "@/sections/featured-products-skeleton";
+import ProductHighlight from "@/sections/product-highlight";
+import Features from "@/sections/features-section";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Home");
@@ -29,13 +29,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   return (
-    <div className="flex flex-col gap-4">
+
+    <main className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-white">
       <Hero />
-      <HeroTwins />
-      <HeroSeason />
+      <Features />
+      <ProductHighlight />
       <Suspense fallback={<FeaturedProductsSkeleton />}>
         <FeaturedProducts />
       </Suspense>
-    </div>
+    </main>
   );
 }

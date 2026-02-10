@@ -1,300 +1,143 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import type { Menu } from "@/lib/shopify/index";
-import { Sheet, SheetContent, SheetTitle, SheetClose } from "../ui/sheet";
-
-interface MenuItem {
-  title: string;
-  url: string;
-  items: MenuItem[];
-}
+import { Sheet, SheetContent } from "../ui/sheet";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, X, ChevronRight } from "lucide-react";
+import type { NavMenuItemConfig } from "@/components/layout/navigation";
+import { cn } from "@/utils/cn";
 
 interface MobileMenuProps {
   open: boolean;
   closeMenu: () => void;
-  menu: Menu;
+  menu: NavMenuItemConfig[];
 }
 
-interface MenuHeaderProps {
-  isRoot?: boolean;
-  title: string;
-  closeMenu: () => void;
-  close: () => void;
-}
-
-interface MenuItemsProps {
-  items: MenuItem[];
-  onClick: (item: MenuItem) => void;
-  handleCloseMenu: () => void;
-}
-
-interface MobileChildMenuProps {
-  title: string;
-  items: MenuItem[];
-  onClick?: (item: MenuItem) => void;
-  closeMenu: () => void;
-  close: () => void;
-}
-
-const MenuHeader = ({
-  isRoot = false,
-  title,
-  closeMenu,
-  close,
-}: MenuHeaderProps): React.JSX.Element => {
+export default function MobileMenu({ open, closeMenu, menu }: MobileMenuProps): React.JSX.Element {
   const t = useTranslations("Header");
 
+  // Navigation Stack State: Maneja el historial de navegación "profunda"
+  // [root, child, grandchild]
+  const [navStack, setNavStack] = useState<NavMenuItemConfig[]>([]);
+
+  // Reset stack when menu closes
+  useEffect(() => {
+    if (!open) {
+      // Delay reset to allow closing animation to finish
+      const timer = setTimeout(() => setNavStack([]), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [open]);
+
+  // Current active menu level items
+  const currentItems = navStack.length > 0
+    ? navStack[navStack.length - 1].items || []
+    : menu;
+
+  const currentTitle = navStack.length > 0
+    ? t(navStack[navStack.length - 1].titleKey as any)
+    : t("mobileMenu.title");
+
+  const handlePush = (item: NavMenuItemConfig) => {
+    setNavStack([...navStack, item]);
+  };
+
+  const handlePop = () => {
+    setNavStack(navStack.slice(0, -1));
+  };
+
   return (
-    <div className="py-4 px-8 w-full h-fit border-b border-border flex justify-between">
-      <button
-        className="flex gap-2"
-        onClick={close}
-        type="button"
-        aria-label={
-          isRoot
-            ? t("mobileMenu.ariaLabels.closeMenu")
-            : t("mobileMenu.ariaLabels.goBack")
-        }
+    <Sheet open={open} onOpenChange={(val) => !val && closeMenu()}>
+      <SheetContent
+        side="left"
+        className="w-full sm:max-w-md p-0 border-r-0 bg-white/95 backdrop-blur-3xl"
       >
-        {!isRoot && (
-          <Image
-            className="-rotate-90"
-            height={18}
-            width={18}
-            alt=""
-            src="/icons/icon-chevron.svg"
-            aria-hidden="true"
-          />
-        )}
-        {isRoot ? (
-          <SheetTitle className="text-lg font-semibold">{title}</SheetTitle>
-        ) : (
-          <div className="text-lg font-semibold">{title}</div>
-        )}
-      </button>
-      {isRoot ? (
-        <SheetClose asChild>
-          <button
-            className="cursor-pointer"
-            type="button"
-            aria-label={t("mobileMenu.ariaLabels.closeMenu")}
-          >
-            <Image
-              src="/icons/icon-close.svg"
-              width={28}
-              height={28}
-              alt=""
-              aria-hidden="true"
-            />
-          </button>
-        </SheetClose>
-      ) : (
-        <button
-          onClick={closeMenu}
-          className="cursor-pointer"
-          type="button"
-          aria-label={t("mobileMenu.ariaLabels.closeMenu")}
-        >
-          <Image
-            src="/icons/icon-close.svg"
-            width={28}
-            height={28}
-            alt=""
-            aria-hidden="true"
-          />
-        </button>
-      )}
-    </div>
-  );
-};
+        <div className="flex flex-col h-full bg-white/90">
 
-const MenuItems = ({
-  items,
-  onClick,
-  handleCloseMenu,
-}: MenuItemsProps): React.JSX.Element | null => {
-  const t = useTranslations("Header");
-
-  if (!items?.length) {
-    return null;
-  }
-
-  return (
-    <div className="py-4 px-8">
-      {items.map((item, i) => {
-        if (!item?.title || !item?.url) {
-          return null;
-        }
-
-        const hasChildren = (item.items?.length ?? 0) > 0;
-
-        return (
-          <div key={i} className="border-b border-border flex justify-between">
-            <Link
-              className="text-xl font-semibold py-5"
-              href={item.url}
-              onClick={handleCloseMenu}
-            >
-              {item.title}
-            </Link>
-            {hasChildren && (
+          {/* HEADER DE NAVEGACIÓN */}
+          <div className="flex items-center justify-between px-6 py-5 border-b border-black/5">
+            {navStack.length > 0 ? (
               <button
-                className="flex-grow flex items-center justify-end"
-                onClick={() => onClick(item)}
-                type="button"
-                aria-expanded={false}
-                aria-label={t("mobileMenu.ariaLabels.openSubmenu", {
-                  title: item.title,
-                })}
+                onClick={handlePop}
+                className="p-2 -ml-2 text-gray-600 hover:text-primary transition-colors rounded-full hover:bg-black/5"
+                aria-label={t("mobileMenu.ariaLabels.goBack")}
               >
-                <Image
-                  src="/icons/icon-chevron.svg"
-                  width={24}
-                  height={24}
-                  className="rotate-90 cursor-pointer"
-                  alt=""
-                  aria-hidden="true"
-                />
+                <ArrowLeft size={20} />
               </button>
+            ) : (
+              // Spacer para mantener el título centrado/alineado cuando no hay botón "back"
+              <div className="w-9" />
             )}
-          </div>
-        );
-      })}
-    </div>
-  );
-};
 
-const MobileChildMenu = ({
-  title,
-  items,
-  onClick,
-  closeMenu,
-  close,
-}: MobileChildMenuProps): React.JSX.Element | null => {
-  if (!items?.length) {
-    return null;
-  }
+            <span className="font-serif text-lg font-medium text-primary tracking-tight">
+              {currentTitle}
+            </span>
 
-  return (
-    <div className="w-full bg-white h-screen absolute left-0 top-0 flex-col transition-transform duration-300 ease-in-out transform translate-x-0">
-      <MenuHeader title={title} closeMenu={closeMenu} close={close} />
-      {onClick ? (
-        <MenuItems
-          items={items}
-          onClick={onClick}
-          handleCloseMenu={closeMenu}
-        />
-      ) : (
-        <MenuItems
-          items={items}
-          onClick={() => {}}
-          handleCloseMenu={closeMenu}
-        />
-      )}
-    </div>
-  );
-};
-
-export default function MobileMenu({
-  open,
-  closeMenu,
-  menu,
-}: MobileMenuProps): React.JSX.Element | null {
-  const t = useTranslations("Header");
-  const [childMenu, setChildMenu] = useState<MenuItem | null>(null);
-  const [grandchildMenu, setGrandchildMenu] = useState<MenuItem | null>(null);
-  const [closingChildMenu, setClosingChildMenu] = useState<boolean>(false);
-  const [closingGrandchildMenu, setClosingGrandchildMenu] =
-    useState<boolean>(false);
-
-  const handleMobileMenuClick = (item: MenuItem): void => {
-    if (childMenu === item) {
-      setClosingChildMenu(true);
-      setTimeout(() => {
-        setChildMenu(null);
-        setClosingChildMenu(false);
-      }, 300);
-    } else {
-      setChildMenu(item);
-      setGrandchildMenu(null);
-    }
-  };
-
-  const handleGrandchildMenuClick = (item: MenuItem): void => {
-    if (grandchildMenu === item) {
-      setClosingGrandchildMenu(true);
-      setTimeout(() => {
-        setGrandchildMenu(null);
-        setClosingGrandchildMenu(false);
-      }, 300);
-    } else {
-      setGrandchildMenu(item);
-    }
-  };
-
-  const handleCloseMenu = (): void => {
-    closeMenu();
-    setTimeout(() => {
-      setChildMenu(null);
-      setGrandchildMenu(null);
-    }, 300);
-  };
-
-  if (!menu?.items?.length) {
-    return null;
-  }
-
-  return (
-    <Sheet open={open} onOpenChange={(val: boolean) => !val && closeMenu()}>
-      <SheetContent side="left" className="p-0 overflow-hidden">
-        <div className="relative w-full h-full flex flex-col">
-          <MenuHeader
-            isRoot={true}
-            title={t("mobileMenu.title")}
-            closeMenu={handleCloseMenu}
-            close={() => {}}
-          />
-          <MenuItems
-            items={menu.items}
-            onClick={handleMobileMenuClick}
-            handleCloseMenu={handleCloseMenu}
-          />
-
-          <div
-            className={`w-full bg-white absolute left-0 top-0 flex-col transition-transform duration-300 ease-in-out transform translate-x-0 ${
-              childMenu && !closingChildMenu ? "!-translate-x-full" : ""
-            }`}
-          >
-            {childMenu && (
-              <MobileChildMenu
-                title={childMenu.title}
-                items={childMenu.items}
-                onClick={handleGrandchildMenuClick}
-                closeMenu={handleCloseMenu}
-                close={() => handleMobileMenuClick(childMenu)}
-              />
-            )}
+            <button
+              onClick={closeMenu}
+              className="p-2 -mr-2 text-gray-600 hover:text-primary transition-colors rounded-full hover:bg-black/5"
+              aria-label={t("mobileMenu.ariaLabels.closeMenu")}
+            >
+              <X size={20} />
+            </button>
           </div>
 
-          <div
-            className={`w-full bg-white absolute left-0 top-0 flex-col transition-transform duration-300 ease-in-out transform translate-x-0 ${
-              grandchildMenu && !closingGrandchildMenu
-                ? "!-translate-x-full"
-                : ""
-            }`}
-          >
-            {grandchildMenu && (
-              <MobileChildMenu
-                title={grandchildMenu.title}
-                items={grandchildMenu.items}
-                closeMenu={handleCloseMenu}
-                close={() => handleGrandchildMenuClick(grandchildMenu)}
-              />
-            )}
+          {/* ÁREA DE CONTENIDO CON TRANSICIONES */}
+          <div className="flex-1 overflow-hidden relative">
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.div
+                key={navStack.length} // Clave para disparar la animación al cambiar de nivel
+                initial={{ x: navStack.length === 0 ? 0 : "100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: "-20%", opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="absolute inset-0 overflow-y-auto py-4 px-6"
+              >
+                <div className="flex flex-col gap-1">
+                  {currentItems.map((item) => {
+                    const hasChildren = (item.items?.length ?? 0) > 0;
+
+                    return (
+                      <div key={item.titleKey} className="group">
+                        {hasChildren ? (
+                          <button
+                            onClick={() => handlePush(item)}
+                            className="w-full flex items-center justify-between p-4 text-left text-lg font-medium text-gray-dark hover:text-primary hover:bg-primary/5 rounded-2xl transition-all active:scale-[0.98]"
+                          >
+                            <span>{t(item.titleKey as any)}</span>
+                            <ChevronRight size={18} className="text-gray-400 group-hover:text-primary" />
+                          </button>
+                        ) : (
+                          <Link
+                            href={item.url || "#"}
+                            onClick={closeMenu}
+                            className={cn(
+                              "block w-full p-4 text-lg font-medium text-gray-dark hover:text-primary hover:bg-primary/5 rounded-2xl transition-all active:scale-[0.98]",
+                              // Destacar el enlace si es una "acción" o enlace final
+                              !hasChildren && "text-gray-600"
+                            )}
+                          >
+                            {t(item.titleKey as any)}
+                          </Link>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Footer Decorativo en el nivel raíz */}
+                {navStack.length === 0 && (
+                  <div className="mt-12 p-6 rounded-3xl bg-bg-gray/50 border border-black/5">
+                    <p className="font-serif text-xl text-primary mb-2">Silvestra</p>
+                    <p className="text-sm text-gray-500">
+                      Hecho a mano en Sierra Morena.
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </SheetContent>
