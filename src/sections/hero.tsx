@@ -12,12 +12,9 @@ export default function Hero() {
   const t = useTranslations("Home.heroNew");
 
   return (
-    <section className="relative min-h-[95vh] w-full flex flex-col lg:flex-row items-center overflow-hidden px-6 lg:pl-32 lg:pr-12 pt-24 lg:pt-0">
-
-      {/* COLUMNA IZQUIERDA: Texto */}
-      <div className="flex-1 flex items-center z-10 lg:pr-16 mb-16 lg:mb-0">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+    <section className="relative min-h-[95vh] w-full flex flex-col lg:flex-row items-center overflow-hidden px-6 lg:pl-32 lg:pr-12 pt-24 lg:pt-0 gap-12 lg:gap-0">
+      <div className="flex-1 flex items-center z-10 lg:pr-16 pb-16 lg:pb-0">
+        <motion.div initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-xl"
@@ -46,9 +43,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* COLUMNA DERECHA: El "Soft Frame" */}
-      <div className="flex-1 relative w-full h-[60vh] lg:h-[85vh] flex items-center justify-center lg:justify-end">
-
+      <div className="relative w-full h-[50vh] shrink-0 lg:h-[85vh] lg:flex-1 flex items-center justify-center lg:justify-end">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}

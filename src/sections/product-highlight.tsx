@@ -25,7 +25,7 @@ export default function ProductHighlight() {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
 
-                    <div className="absolute bottom-0 left-0 right-0 h-1/8 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[2px] z-10" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1/3 md:h-1/8 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[2px] z-10" />
 
                     <div className="absolute bottom-8 left-8 z-20 text-white">
                         <p className="font-serif text-3xl drop-shadow-sm">{t("productHighlight.imageLabel")}</p>
